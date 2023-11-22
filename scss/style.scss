@@ -166,7 +166,7 @@ button {
    display: flex;
    justify-content: space-between;
    gap: 25px;
-   padding: 158px 0 396px;
+   padding: 158px 25px 396px;
 }
 
 .intro__info {
@@ -341,7 +341,7 @@ button {
    }
 }
 
-.popular__coffee {
+.popular__cards {
    display: flex;
    justify-content: space-between;
    gap: 38px;
@@ -437,6 +437,18 @@ button {
    align-items: center;
    gap: 10px;
 
+   // inside is <p> or buttons
+
+   .coffee__desc {
+      max-width: 162px;
+      // bread with meat and vegetables
+      color: $gray;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.56px;
+   }
+
    .coffee__type-buttons {
       display: flex;
       gap: 24px;
@@ -521,34 +533,37 @@ button {
 /* About */
 
 .about {
+   background: url("../img/about/about-bg.png") repeat-x center 100%;
+
    .page-title {
       margin-bottom: 24px;
    }
 }
 
-.about__content{
+.about__content {
    display: flex;
    justify-content: space-between;
    align-items: flex-end;
    gap: 35px;
-   margin-right: auto;
+   max-width: 1076px;
+   margin: 0 0 120px auto;
    padding-bottom: 63px;
 }
 
-.about__image-wrap{
+.about__image-wrap {
    padding: 6px;
    border-radius: 12px;
    background-color: rgba(#fff, 0.5);
    box-shadow: 0 6px 16px 0 rgba(#000, 0.16);
 
-   img{
+   img {
       width: 359px;
       height: auto;
       border-radius: 12px;
    }
 }
 
-.about__info{
+.about__info {
    padding: 0 4.27% 20px 0;
 }
 
@@ -580,4 +595,23 @@ button {
    color: $yellow;
    font-size: 12px;
    font-weight: 700;
+}
+
+/* Special */
+
+.special {
+   .page-title {
+      margin-bottom: 32px;
+   }
+}
+
+.special__cards {
+   display: grid;
+   grid-template-rows: auto;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 40px;
+
+   .coffee {
+      box-shadow: 0 6px 16px 0 rgba(#000, 0.16);
+   }
 }

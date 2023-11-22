@@ -125,7 +125,7 @@ button {
   display: flex;
   justify-content: space-between;
   gap: 25px;
-  padding: 158px 0 396px; }
+  padding: 158px 25px 396px; }
 
 .intro__info {
   max-width: 489px;
@@ -258,7 +258,7 @@ button {
   .popular .page-title {
     margin-bottom: 41px; }
 
-.popular__coffee {
+.popular__cards {
   display: flex;
   justify-content: space-between;
   gap: 38px;
@@ -334,6 +334,13 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 10px; }
+  .coffee__purchasing .coffee__desc {
+    max-width: 162px;
+    color: #7e7d7a;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.56px; }
   .coffee__purchasing .coffee__type-buttons {
     display: flex;
     gap: 24px; }
@@ -396,15 +403,18 @@ button {
   letter-spacing: 0.72px; }
 
 /* About */
-.about .page-title {
-  margin-bottom: 24px; }
+.about {
+  background: url("../img/about/about-bg.png") repeat-x center 100%; }
+  .about .page-title {
+    margin-bottom: 24px; }
 
 .about__content {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 35px;
-  margin-right: auto;
+  max-width: 1076px;
+  margin: 0 0 120px auto;
   padding-bottom: 63px; }
 
 .about__image-wrap {
@@ -446,3 +456,15 @@ button {
   color: #f4ae26;
   font-size: 12px;
   font-weight: 700; }
+
+/* Special */
+.special .page-title {
+  margin-bottom: 32px; }
+
+.special__cards {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px; }
+  .special__cards .coffee {
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16); }
