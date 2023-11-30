@@ -1,0 +1,15 @@
+@media (max-width: 1025px) {
+  .header__content {
+    gap: 35px; }
+
+  .intro__coffee {
+    align-self: center;
+    width: 300px;
+    height: 300px; }
+    .intro__coffee .intro__coffee-item {
+      width: auto;
+      height: auto; }
+      .intro__coffee .intro__coffee-item p {
+        padding: 10px 25px; } }
+
+/*# sourceMappingURL=media-queries.css.map */

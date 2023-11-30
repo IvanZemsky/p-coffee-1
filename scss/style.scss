@@ -21,7 +21,7 @@ body {
 }
 
 ::selection {
-   background-color: #4d4331;
+   background-color: #463d2c;
    border-radius: 10px;
 }
 
@@ -153,13 +153,14 @@ button {
 
 .header__link {
    color: #000;
+   transition: color 0.15s linear;
 
    &--active {
       color: $orange;
    }
 
    &:hover{
-      color: rgba($orange, 0.56)
+      color: rgba($orange, 0.67)
    }
 }
 
@@ -327,6 +328,7 @@ button {
    width: 416px;
    height: 416px;
    margin-right: 23px;
+   padding: 90.5px 46.5px;
    border-radius: 50%;
    background:
       url("../img/intro/intro-circle-lines.svg") no-repeat center,
@@ -335,6 +337,8 @@ button {
    > img {
       position: relative;
       top: 2px;
+      width: 100%;
+      height: auto;
    }
 
    .intro__coffee-item {
@@ -414,13 +418,23 @@ button {
 
 .popular__cards {
    display: flex;
+   flex-wrap: wrap;
    justify-content: space-between;
    gap: 38px;
    padding-bottom: 87px;
+
+   // display: grid;
+   // grid-template-rows: auto;
+   // grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+   // justify-content: center;
+   // gap: 38px;
+
+   // .coffee{
+   //    flex: 1 0 288px;
+   // }
 }
 
 .coffee {
-   flex: 1 1 auto;
    padding: 6px;
    backdrop-filter: blur(2px);
    background-color: rgba(#fff, 0.5);
@@ -429,6 +443,9 @@ button {
 }
 
 .coffee__block {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
    padding: 24px 18px 19px 18px;
    border-radius: 12px;
    background-color: #fff;
@@ -471,11 +488,15 @@ button {
       .coffee__star {
          width: 14px;
          height: 14px;
+         user-select: none;
       }
    }
 }
 
 .coffee__info {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
    padding: 19px 15px 0 11px;
 }
 
@@ -507,8 +528,8 @@ button {
    justify-content: space-between;
    align-items: center;
    gap: 10px;
-
-   // inside is <p> or buttons
+   margin-top: auto;
+      // inside is <p> or buttons
 
    .coffee__desc {
       max-width: 162px;
@@ -539,10 +560,11 @@ button {
 
          &:hover{
             border-color: rgba($orange, 0.5);
-            color: rgba($orange, 0.83);
+            color: rgba($orange, 0.9);
          }
 
-         &--active {
+         &--active,
+         &--active:hover {
             color: $orange;
             border-color: $orange;
          }
@@ -676,6 +698,13 @@ button {
    color: $yellow;
    font-size: 12px;
    font-weight: 700;
+   box-shadow: inset 0 0 0 3px $brown;
+   transition: all 0.2s linear;
+
+   &:hover{
+      background-color: rgba(0,0,0,0);
+      color: $orange;
+   }
 }
 
 /* Special */
@@ -691,7 +720,7 @@ button {
 .special__cards {
    display: grid;
    grid-template-rows: auto;
-   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
    gap: 40px;
 
    .coffee {
@@ -741,6 +770,7 @@ button {
 .reviews__slider-block {
    position: relative;
    border: 6px solid rgba(#ffd390, 0.63);
+   flex-shrink: 0;
 
    img {
       width: 100%;

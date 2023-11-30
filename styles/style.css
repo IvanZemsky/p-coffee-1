@@ -13,7 +13,7 @@ body {
   line-height: 1; }
 
 ::selection {
-  background-color: #4d4331;
+  background-color: #463d2c;
   border-radius: 10px; }
 
 ul,
@@ -116,11 +116,12 @@ button {
   gap: 32px; }
 
 .header__link {
-  color: #000; }
+  color: #000;
+  transition: color 0.15s linear; }
   .header__link--active {
     color: #ff902b; }
   .header__link:hover {
-    color: rgba(255, 144, 43, 0.56); }
+    color: rgba(255, 144, 43, 0.67); }
 
 .header__search {
   display: flex;
@@ -249,11 +250,14 @@ button {
   width: 416px;
   height: 416px;
   margin-right: 23px;
+  padding: 90.5px 46.5px;
   border-radius: 50%;
   background: url("../img/intro/intro-circle-lines.svg") no-repeat center, #2f2105; }
   .intro__coffee > img {
     position: relative;
-    top: 2px; }
+    top: 2px;
+    width: 100%;
+    height: auto; }
   .intro__coffee .intro__coffee-item {
     position: absolute;
     padding: 6px;
@@ -311,12 +315,12 @@ button {
 
 .popular__cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 38px;
   padding-bottom: 87px; }
 
 .coffee {
-  flex: 1 1 auto;
   padding: 6px;
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.5);
@@ -324,6 +328,9 @@ button {
   box-shadow: 10px 10px 32px 0 rgba(0, 0, 0, 0.25); }
 
 .coffee__block {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 24px 18px 19px 18px;
   border-radius: 12px;
   background-color: #fff; }
@@ -357,9 +364,13 @@ button {
       letter-spacing: 0.56px; }
     .coffee__rating-wrap .coffee__rating .coffee__star {
       width: 14px;
-      height: 14px; }
+      height: 14px;
+      user-select: none; }
 
 .coffee__info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding: 19px 15px 0 11px; }
 
 .coffee__title {
@@ -384,7 +395,8 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px; }
+  gap: 10px;
+  margin-top: auto; }
   .coffee__purchasing .coffee__desc {
     max-width: 162px;
     color: #7e7d7a;
@@ -409,8 +421,8 @@ button {
       letter-spacing: 0.64px; }
       .coffee__purchasing .coffee__type-buttons .coffee__button:hover {
         border-color: rgba(255, 144, 43, 0.5);
-        color: rgba(255, 144, 43, 0.83); }
-      .coffee__purchasing .coffee__type-buttons .coffee__button--active {
+        color: rgba(255, 144, 43, 0.9); }
+      .coffee__purchasing .coffee__type-buttons .coffee__button--active, .coffee__purchasing .coffee__type-buttons .coffee__button--active:hover {
         color: #ff902b;
         border-color: #ff902b; }
   .coffee__purchasing .coffee__buy {
@@ -512,7 +524,12 @@ button {
   background-color: #2f2105;
   color: #f4ae26;
   font-size: 12px;
-  font-weight: 700; }
+  font-weight: 700;
+  box-shadow: inset 0 0 0 3px #2f2105;
+  transition: all 0.2s linear; }
+  .about__button:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ff902b; }
 
 /* Special */
 .special {
@@ -523,7 +540,7 @@ button {
 .special__cards {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   gap: 40px; }
   .special__cards .coffee {
     box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16); }
@@ -560,7 +577,8 @@ button {
 
 .reviews__slider-block {
   position: relative;
-  border: 6px solid rgba(255, 211, 144, 0.63); }
+  border: 6px solid rgba(255, 211, 144, 0.63);
+  flex-shrink: 0; }
   .reviews__slider-block img {
     width: 100%;
     height: 100%;
