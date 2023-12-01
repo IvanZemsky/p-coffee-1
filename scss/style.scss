@@ -44,6 +44,11 @@ a {
    text-decoration: none;
 }
 
+img {
+   max-width: 100%;
+   height: auto;
+}
+
 button,
 input {
    font-family: "Poppins", sans-serif;
@@ -56,6 +61,8 @@ input {
 button {
    cursor: pointer;
 }
+
+/* --Blocks-- */
 
 .wrapper {
    max-width: 1220px;
@@ -86,6 +93,173 @@ button {
    }
 }
 
+.coffee {
+   padding: 6px;
+   backdrop-filter: blur(2px);
+   background-color: rgba(#fff, 0.5);
+   border-radius: 12px;
+   box-shadow: 10px 10px 32px 0 rgba(#000, 0.25);
+}
+
+.coffee__block {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   padding: 24px 18px 19px 18px;
+   border-radius: 12px;
+   background-color: #fff;
+}
+
+.coffee__image-wrap {
+   position: relative;
+
+   > img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+   }
+}
+
+.coffee__rating-wrap {
+   position: absolute;
+   top: 7px;
+   left: 10px;
+   padding: 4px;
+   backdrop-filter: blur(2px);
+   background-color: rgba(#fff, 0.5);
+   border-radius: 27px;
+   z-index: 150;
+
+   .coffee__rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      background-color: #fff;
+      border-radius: 50px;
+
+      p {
+         color: $brown;
+         font-weight: 700;
+         letter-spacing: 0.56px;
+      }
+
+      .coffee__star {
+         width: 14px;
+         height: 14px;
+         user-select: none;
+      }
+   }
+}
+
+.coffee__info {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   padding: 19px 15px 0 11px;
+}
+
+.coffee__title {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 10px;
+   margin-bottom: 6px;
+
+   .coffee__name {
+      color: $brown;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.96px;
+   }
+
+   .coffee_cost {
+      color: $brown;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.96px;
+      white-space: nowrap;
+   }
+}
+
+.coffee__purchasing {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 10px;
+   margin-top: auto;
+   // inside is <p> or buttons
+
+   .coffee__desc {
+      max-width: 162px;
+      color: $gray;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.56px;
+   }
+
+   .coffee__type-buttons {
+      display: flex;
+      gap: 24px;
+
+      .coffee__button {
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 64px;
+         height: 32px;
+         border: 2px solid #ffd28f;
+         border-radius: 8px;
+         color: #ffd28f;
+         font-size: 16px;
+         font-weight: 600;
+         letter-spacing: 0.64px;
+         transition: all 0.15s linear;
+
+         &:hover {
+            border-color: rgba($orange, 0.6);
+            color: rgba($orange, 0.9);
+         }
+
+         &:has(.coffee__radio:checked){
+            color: $orange;
+            border-color: $orange;
+         }
+
+         .coffee__radio {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+         }
+      }
+   }
+
+   .coffee__buy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background-color: $orange;
+      transition: box-shadow 0.15s linear;
+
+      &:hover {
+         box-shadow: 0 0 0 4px #ff6600 inset;
+      }
+
+      img {
+         width: 18px;
+         height: 17px;
+      }
+   }
+}
+
 /* Header */
 
 .header {
@@ -98,7 +272,7 @@ button {
    transition: top 0.2s linear;
    z-index: 500;
 
-   &--scrolled{
+   &--scrolled {
       position: fixed;
       top: -100%;
       margin-top: 0;
@@ -106,7 +280,7 @@ button {
       animation-duration: 0.2s;
       animation-fill-mode: forwards;
 
-      .header__wrap{
+      .header__wrap {
          padding: 12px 25px;
          background-color: #ffddab;
          border-radius: 30px;
@@ -114,7 +288,7 @@ button {
       }
    }
 
-   &--removed{
+   &--removed {
       top: 10px;
       animation-name: scrolled-animation;
       animation-direction: reverse;
@@ -126,13 +300,13 @@ button {
       0% {
          top: -100%;
       }
-      100%{
+      100% {
          top: 10px;
       }
    }
 }
 
-.header__wrap{
+.header__wrap {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -159,8 +333,8 @@ button {
       color: $orange;
    }
 
-   &:hover{
-      color: rgba($orange, 0.67)
+   &:hover {
+      color: rgba($orange, 0.67);
    }
 }
 
@@ -176,13 +350,13 @@ button {
    height: 24px;
    z-index: 100;
 
-   img{
+   img {
       width: 25px;
       height: 25px;
    }
 
-   &::before{
-      content: '';
+   &::before {
+      content: "";
       position: absolute;
       top: 55%;
       left: 55%;
@@ -195,7 +369,7 @@ button {
       z-index: -1;
    }
 
-   &:hover::before{
+   &:hover::before {
       background-color: $orange;
    }
 }
@@ -221,6 +395,7 @@ button {
       top: 50%;
       left: 12px;
       transform: translateY(-50%);
+      width: 20px;
    }
 }
 
@@ -404,191 +579,30 @@ button {
 .popular {
    position: relative;
    top: -300px;
-   max-width: 1268px;
-   margin: 0 auto 120px auto;
    background: url("../img/popular/popular-rectangle.svg") bottom center;
    background-size: 100% contain;
    background-repeat: no-repeat;
    z-index: 100;
+}
 
-   .page-title {
-      margin-bottom: 41px;
-   }
+.popular__content {
+   max-width: 1268px;
+   margin: 0 auto 120px auto;
+   padding: 41px 0 0 0;
+   overflow-y: auto;
 }
 
 .popular__cards {
    display: flex;
-   flex-wrap: wrap;
    justify-content: space-between;
    gap: 38px;
-   padding-bottom: 87px;
+   max-width: 1192px;
+   margin: 0 auto;
+   padding: 0 25px 87px 25px;
 
-   // display: grid;
-   // grid-template-rows: auto;
-   // grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
-   // justify-content: center;
-   // gap: 38px;
-
-   // .coffee{
-   //    flex: 1 0 288px;
-   // }
-}
-
-.coffee {
-   padding: 6px;
-   backdrop-filter: blur(2px);
-   background-color: rgba(#fff, 0.5);
-   border-radius: 12px;
-   box-shadow: 10px 10px 32px 0 rgba(#000, 0.25);
-}
-
-.coffee__block {
-   display: flex;
-   flex-direction: column;
-   height: 100%;
-   padding: 24px 18px 19px 18px;
-   border-radius: 12px;
-   background-color: #fff;
-}
-
-.coffee__image-wrap {
-   position: relative;
-
-   > img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-   }
-}
-
-.coffee__rating-wrap {
-   position: absolute;
-   top: 7px;
-   left: 10px;
-   padding: 4px;
-   backdrop-filter: blur(2px);
-   background-color: rgba(#fff, 0.5);
-   border-radius: 27px;
-   z-index: 150;
-
-   .coffee__rating {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 6px 10px;
-      background-color: #fff;
-      border-radius: 50px;
-
-      p {
-         color: $brown;
-         font-weight: 700;
-         letter-spacing: 0.56px;
-      }
-
-      .coffee__star {
-         width: 14px;
-         height: 14px;
-         user-select: none;
-      }
-   }
-}
-
-.coffee__info {
-   display: flex;
-   flex-direction: column;
-   flex-grow: 1;
-   padding: 19px 15px 0 11px;
-}
-
-.coffee__title {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 10px;
-   margin-bottom: 6px;
-
-   .coffee__name {
-      color: $brown;
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: 0.96px;
-   }
-
-   .coffee_cost {
-      color: $brown;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.96px;
-      white-space: nowrap;
-   }
-}
-
-.coffee__purchasing {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 10px;
-   margin-top: auto;
-      // inside is <p> or buttons
-
-   .coffee__desc {
-      max-width: 162px;
-      // bread with meat and vegetables
-      color: $gray;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.5;
-      letter-spacing: 0.56px;
-   }
-
-   .coffee__type-buttons {
-      display: flex;
-      gap: 24px;
-
-      .coffee__button {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         width: 64px;
-         height: 32px;
-         border: 2px solid #ffd28f;
-         border-radius: 8px;
-         color: #ffd28f;
-         font-size: 16px;
-         font-weight: 600;
-         letter-spacing: 0.64px;
-
-         &:hover{
-            border-color: rgba($orange, 0.5);
-            color: rgba($orange, 0.9);
-         }
-
-         &--active,
-         &--active:hover {
-            color: $orange;
-            border-color: $orange;
-         }
-      }
-   }
-
-   .coffee__buy {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 43px;
-      height: 43px;
-      border-radius: 50%;
-      background-color: $orange;
-      transition: box-shadow 0.15s linear;
-
-      &:hover{
-         box-shadow: 0 0 0 4px #ff6600 inset;
-      }
-
-      img {
-         width: 18px;
-         height: 17px;
-      }
+   .coffee {
+      width: 355px;
+      flex: 0 0 auto;
    }
 }
 
@@ -625,6 +639,7 @@ button {
    color: $brown;
    font-size: 24px;
    font-weight: 600;
+   line-height: 1.3;
    letter-spacing: 0.96px;
 }
 
@@ -661,7 +676,6 @@ button {
 
    img {
       width: 359px;
-      height: auto;
       border-radius: 12px;
    }
 }
@@ -701,8 +715,8 @@ button {
    box-shadow: inset 0 0 0 3px $brown;
    transition: all 0.2s linear;
 
-   &:hover{
-      background-color: rgba(0,0,0,0);
+   &:hover {
+      background-color: rgba(0, 0, 0, 0);
       color: $orange;
    }
 }
@@ -747,7 +761,7 @@ button {
    padding: 102px 0 70px;
 }
 
-.reviews__info{
+.reviews__info {
    padding-right: 54px;
 }
 
@@ -757,11 +771,11 @@ button {
    line-height: 1.5;
 }
 
-.reviews__slider{
+.reviews__slider {
    overflow: hidden;
 }
 
-.reviews__slider-blocks{
+.reviews__slider-blocks {
    display: flex;
    gap: 82px;
    margin-bottom: 18px;
@@ -783,10 +797,10 @@ button {
    position: absolute;
    bottom: 16px;
    left: 30px;
-   width: 244px;
+   width: 240px;
    min-height: 58px;
    padding: 12px;
-   border: 6px solid rgba(#ffd390, 0.63);
+   box-shadow: 0 0 0 6px rgba(#ffd390, 0.63);
    border-radius: 8px;
    background-color: #ffcb7c;
    color: $brown;
@@ -805,23 +819,23 @@ button {
    word-wrap: break-word;
 }
 
-.reviews__stage-wrap{
+.reviews__stage-wrap {
    max-width: 800px;
 }
 
-.reviews__stage{
+.reviews__stage {
    display: flex;
    max-width: 40px;
    gap: 8px;
    margin: 0 auto;
 
-   .reviews__stage-block{
+   .reviews__stage-block {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: #FFE9D2;
+      background-color: #ffe9d2;
 
-      &--current{
+      &--current {
          background-color: $orange;
       }
    }
@@ -829,7 +843,7 @@ button {
 
 /* Subscription */
 
-.subscription{
+.subscription {
    margin-bottom: 120px;
 }
 
@@ -885,5 +899,12 @@ button {
    font-size: 14px;
    font-weight: 600;
    background-color: $brown;
+   box-shadow: inset 0 0 0 3px $brown;
+   transition: all 0.2s linear;
    z-index: 50;
+
+   &:hover {
+      background-color: rgba(0, 0, 0, 0);
+      color: $brown;
+   }
 }

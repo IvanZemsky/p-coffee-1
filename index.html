@@ -88,10 +88,10 @@
 
       <!-- Popular -->
       <section class="popular">
-         <div class="popular__content wrapper">
-            <h2 class="page-title">
-               Popular <u>Now</u>
-            </h2>
+         <h2 class="page-title wrapper">
+            Popular <u>Now</u>
+         </h2>
+         <div class="popular__content">
             <div class="popular__cards">
                <div class="coffee">
                   <div class="coffee__block">
@@ -110,14 +110,16 @@
                            <p class="coffee_cost">21 K</p>
                         </div>
                         <div class="coffee__purchasing">
-                           <div class="coffee__type-buttons">
-                              <button class="coffee__button coffee__button--active">
+                           <form class="coffee__type-buttons">
+                              <label for="temperature-hot" class="coffee__button">
+                                 <input class="coffee__radio" type="radio" name="temperature" id="temperature-hot" value="hot">
                                  Hot
-                              </button>
-                              <button class="coffee__button">
+                              </label>
+                              <label for="temperature-hot" class="coffee__button">
+                                 <input class="coffee__radio" type="radio" name="temperature" id="temperature-cold" value="cold">
                                  Cold
-                              </button>
-                           </div>
+                              </label>
+                           </form>
                            <a class="coffee__buy" href="#!">
                               <img src="./icons/buy.svg" alt="Purchase button">
                            </a>
@@ -125,7 +127,6 @@
                      </div>
                   </div>
                </div>
-
                <div class="coffee">
                   <div class="coffee__block">
                      <div class="coffee__image-wrap">
@@ -144,14 +145,16 @@
                            <p class="coffee_cost">12 K</p>
                         </div>
                         <div class="coffee__purchasing">
-                           <div class="coffee__type-buttons">
-                              <button class="coffee__button">
+                           <form class="coffee__type-buttons">
+                              <label for="temperature-hot" class="coffee__button">
+                                 <input class="coffee__radio" type="radio" name="temperature" id="temperature-hot" value="hot">
                                  Hot
-                              </button>
-                              <button class="coffee__button">
+                              </label>
+                              <label for="temperature-hot" class="coffee__button">
+                                 <input class="coffee__radio" type="radio" name="temperature" id="temperature-cold" value="cold">
                                  Cold
-                              </button>
-                           </div>
+                              </label>
+                           </form>
                            <a class="coffee__buy" href="#!">
                               <img src="./icons/buy.svg" alt="Purchase button">
                            </a>
@@ -178,14 +181,16 @@
                            <p class="coffee_cost">23 K</p>
                         </div>
                         <div class="coffee__purchasing">
-                           <div class="coffee__type-buttons">
-                              <button class="coffee__button">
+                           <form class="coffee__type-buttons">
+                              <label for="temperature-hot" class="coffee__button">
+                                 <input class="coffee__radio" type="radio" name="temperature" id="temperature-hot" value="hot">
                                  Hot
-                              </button>
-                              <button class="coffee__button">
+                              </label>
+                              <label for="temperature-hot" class="coffee__button">
+                                 <input class="coffee__radio" type="radio" name="temperature" id="temperature-cold" value="cold">
                                  Cold
-                              </button>
-                           </div>
+                              </label>
+                           </form>
                            <a class="coffee__buy" href="#!">
                               <img src="./icons/buy.svg" alt="Purchase button">
                            </a>
