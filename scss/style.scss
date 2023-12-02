@@ -223,7 +223,7 @@ button {
             color: rgba($orange, 0.9);
          }
 
-         &:has(.coffee__radio:checked){
+         &:has(.coffee__radio:checked) {
             color: $orange;
             border-color: $orange;
          }
@@ -323,18 +323,26 @@ button {
 .header__links {
    display: flex;
    gap: 32px;
+
+   li {
+      flex-shrink: 0;
+   }
 }
 
 .header__link {
    color: #000;
    transition: color 0.15s linear;
 
-   &--active {
-      color: $orange;
-   }
-
    &:hover {
       color: rgba($orange, 0.67);
+   }
+
+   &--active {
+      color: $orange;
+
+      &:hover {
+         color: $orange;
+      }
    }
 }
 
@@ -346,30 +354,22 @@ button {
 
 .header__cart {
    position: relative;
-   width: 25px;
-   height: 24px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 42px;
+   height: 42px;
    z-index: 100;
+   border-radius: 50%;
+   background-color: rgba($orange, 0.5);
+   transition: background-color 0.15s linear;
 
    img {
       width: 25px;
       height: 25px;
    }
 
-   &::before {
-      content: "";
-      position: absolute;
-      top: 55%;
-      left: 55%;
-      transform: translate(-50%, -50%);
-      width: 175%;
-      height: 175%;
-      border-radius: 50%;
-      background-color: rgba($orange, 0.5);
-      transition: background-color 0.15s linear;
-      z-index: -1;
-   }
-
-   &:hover::before {
+   &:hover {
       background-color: $orange;
    }
 }
@@ -378,7 +378,6 @@ button {
    position: relative;
 
    input {
-      min-width: 222px;
       padding: 11px 11px 11px 52px;
       font-size: 12px;
       background-color: #fff;
@@ -579,6 +578,8 @@ button {
 .popular {
    position: relative;
    top: -300px;
+   padding-bottom: 62px;
+   margin-bottom: 120px;
    background: url("../img/popular/popular-rectangle.svg") bottom center;
    background-size: 100% contain;
    background-repeat: no-repeat;
@@ -587,9 +588,24 @@ button {
 
 .popular__content {
    max-width: 1268px;
-   margin: 0 auto 120px auto;
+   margin: 0 auto;
    padding: 41px 0 0 0;
    overflow-y: auto;
+
+   &::-webkit-scrollbar {
+      height: 20px;
+      background-color: rgba(0,0,0,0);
+   }
+
+   &::-webkit-scrollbar-track {
+
+   }
+
+   &::-webkit-scrollbar-thumb {
+      border-left: 25px solid #f9d9aa;
+      border-bottom: 14px solid #f9d9aa;
+      background-color: $orange;
+   }
 }
 
 .popular__cards {
@@ -598,7 +614,7 @@ button {
    gap: 38px;
    max-width: 1192px;
    margin: 0 auto;
-   padding: 0 25px 87px 25px;
+   padding: 0 25px 25px 25px;
 
    .coffee {
       width: 355px;

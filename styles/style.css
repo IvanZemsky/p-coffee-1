@@ -248,14 +248,18 @@ button {
 .header__links {
   display: flex;
   gap: 32px; }
+  .header__links li {
+    flex-shrink: 0; }
 
 .header__link {
   color: #000;
   transition: color 0.15s linear; }
-  .header__link--active {
-    color: #ff902b; }
   .header__link:hover {
     color: rgba(255, 144, 43, 0.67); }
+  .header__link--active {
+    color: #ff902b; }
+    .header__link--active:hover {
+      color: #ff902b; }
 
 .header__search {
   display: flex;
@@ -264,31 +268,24 @@ button {
 
 .header__cart {
   position: relative;
-  width: 25px;
-  height: 24px;
-  z-index: 100; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  z-index: 100;
+  border-radius: 50%;
+  background-color: rgba(255, 144, 43, 0.5);
+  transition: background-color 0.15s linear; }
   .header__cart img {
     width: 25px;
     height: 25px; }
-  .header__cart::before {
-    content: "";
-    position: absolute;
-    top: 55%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    width: 175%;
-    height: 175%;
-    border-radius: 50%;
-    background-color: rgba(255, 144, 43, 0.5);
-    transition: background-color 0.15s linear;
-    z-index: -1; }
-  .header__cart:hover::before {
+  .header__cart:hover {
     background-color: #ff902b; }
 
 .header__search-field {
   position: relative; }
   .header__search-field input {
-    min-width: 222px;
     padding: 11px 11px 11px 52px;
     font-size: 12px;
     background-color: #fff;
@@ -439,6 +436,8 @@ button {
 .popular {
   position: relative;
   top: -300px;
+  padding-bottom: 62px;
+  margin-bottom: 120px;
   background: url("../img/popular/popular-rectangle.svg") bottom center;
   background-size: 100% contain;
   background-repeat: no-repeat;
@@ -446,9 +445,16 @@ button {
 
 .popular__content {
   max-width: 1268px;
-  margin: 0 auto 120px auto;
+  margin: 0 auto;
   padding: 41px 0 0 0;
   overflow-y: auto; }
+  .popular__content::-webkit-scrollbar {
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0); }
+  .popular__content::-webkit-scrollbar-thumb {
+    border-left: 25px solid #f9d9aa;
+    border-bottom: 14px solid #f9d9aa;
+    background-color: #ff902b; }
 
 .popular__cards {
   display: flex;
@@ -456,7 +462,7 @@ button {
   gap: 38px;
   max-width: 1192px;
   margin: 0 auto;
-  padding: 0 25px 87px 25px; }
+  padding: 0 25px 25px 25px; }
   .popular__cards .coffee {
     width: 355px;
     flex: 0 0 auto; }
