@@ -56,11 +56,16 @@
 
   .header__nav {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 115%;
+    right: 0;
+    transform: translateX(100%);
     padding: 30px;
-    background-color: silver;
+    background-color: #ffddab;
+    border-radius: 15px;
+    transition: all 0.2s linear;
     z-index: 450; }
+    .header__nav--appeared {
+      transform: translateX(-25px); }
 
   .header__links {
     flex-direction: column; }

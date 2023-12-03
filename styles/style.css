@@ -69,7 +69,8 @@ button {
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: #ff902b; }
+    background-color: #ff902b;
+    z-index: 10; }
 
 .coffee {
   padding: 6px;
@@ -214,7 +215,7 @@ button {
     position: fixed;
     top: -100%;
     margin-top: 0;
-    animation-name: scrolled-animation;
+    animation-name: scrolledHeader;
     animation-duration: 0.2s;
     animation-fill-mode: forwards; }
     .header--scrolled .header__wrap {
@@ -224,11 +225,11 @@ button {
       box-shadow: 0 0 20px 0 rgba(126, 125, 122, 0.2); }
   .header--removed {
     top: 10px;
-    animation-name: scrolled-animation;
+    animation-name: scrolledHeader;
     animation-direction: reverse;
     animation-duration: 0.2s;
     animation-fill-mode: forwards; }
-@keyframes scrolled-animation {
+@keyframes scrolledHeader {
   0% {
     top: -100%; }
   100% {
@@ -475,12 +476,13 @@ button {
 
 .delivery__cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 30px; }
 
 .delivery__card {
-  flex: 1 1 33.33%;
+  flex: 1 1 213px;
   padding: 16px 24px;
   text-align: center; }
   .delivery__card img {
@@ -655,7 +657,7 @@ button {
   margin-bottom: 120px; }
 
 .subscription__content {
-  padding: 132px 0;
+  padding: 132px 30px;
   background: url("../img/subscription/subscription-bg.png") center/cover;
   border-radius: 24px; }
 

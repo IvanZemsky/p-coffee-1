@@ -16,3 +16,10 @@ window.addEventListener('scroll', () => {
       header.classList.remove('header--scrolled');
    }
 });
+
+const headerBurger = document.getElementById('header-burger');
+
+headerBurger.addEventListener('click', () => {
+   const headerMenu = document.querySelector('.header__nav');
+   headerMenu.classList.toggle('header__nav--appeared');
+});
