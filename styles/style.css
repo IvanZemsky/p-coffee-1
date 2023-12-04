@@ -128,19 +128,18 @@ button {
 .coffee__title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
-  margin-bottom: 6px; }
+  margin-bottom: 6px;
+  font-size: 24px;
+  color: #2f2105;
+  letter-spacing: 0.96px; }
   .coffee__title .coffee__name {
-    color: #2f2105;
-    font-size: 24px;
     font-weight: 600;
-    letter-spacing: 0.96px; }
-  .coffee__title .coffee_cost {
-    color: #2f2105;
-    font-size: 24px;
+    font-size: inherit; }
+  .coffee__title .coffee__cost {
     font-weight: 700;
-    letter-spacing: 0.96px;
+    font-size: inherit;
     white-space: nowrap; }
 
 .coffee__purchasing {
@@ -190,6 +189,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     width: 43px;
     height: 43px;
     border-radius: 50%;
@@ -244,7 +244,11 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 142px; }
+  gap: 142px;
+  margin-left: auto; }
+
+.header__logo {
+  flex-shrink: 0; }
 
 .header__links {
   display: flex;
@@ -303,7 +307,7 @@ button {
 
 /* Intro */
 .intro {
-  background: url("../img/intro/intro-bg.png") calc(100% + 63px) -34px, url("../img/intro/intro-bg.png") 7px calc(100% - 22px), #f6ebda;
+  background: url("../img/intro/intro-bg.png") calc(100% + 63px) -34px, url("../img/intro/intro-bg.png") 7px calc(100% + 5px), #f6ebda;
   background-repeat: no-repeat; }
 
 .intro__content {
@@ -347,12 +351,14 @@ button {
   padding: 12px 32px;
   color: #fff;
   background-color: #2f2105;
+  box-shadow: inset 0 0 0 3px #2f2105;
   font-size: 14px;
   font-weight: 600;
   border-radius: 33px;
   transition: all 0.2s linear; }
   .intro__order-link:hover {
-    background-color: rgba(47, 33, 5, 0.4); }
+    background-color: rgba(0, 0, 0, 0);
+    color: #2f2105; }
   .intro__order-link .intro__order-icon {
     display: flex;
     justify-content: center;
@@ -436,41 +442,35 @@ button {
 /* Popular */
 .popular {
   position: relative;
-  top: -300px;
-  padding-bottom: 62px;
+  top: -325px;
   margin-bottom: 120px;
   background: url("../img/popular/popular-rectangle.svg") bottom center;
   background-size: 100% contain;
   background-repeat: no-repeat;
   z-index: 100; }
+  .popular .page-title {
+    margin-bottom: 42px; }
 
 .popular__content {
-  max-width: 1268px;
   margin: 0 auto;
-  padding: 41px 0 0 0;
+  padding: 41px 25px 0 25px;
   overflow-y: auto; }
-  .popular__content::-webkit-scrollbar {
-    height: 20px;
-    background-color: rgba(0, 0, 0, 0); }
-  .popular__content::-webkit-scrollbar-thumb {
-    border-left: 25px solid #f9d9aa;
-    border-bottom: 14px solid #f9d9aa;
-    background-color: #ff902b; }
 
 .popular__cards {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 38px;
-  max-width: 1192px;
   margin: 0 auto;
-  padding: 0 25px 25px 25px; }
+  padding: 0 25px 87px 25px; }
   .popular__cards .coffee {
-    width: 355px;
-    flex: 0 0 auto; }
+    max-width: 65%;
+    min-width: 270px;
+    flex: 1 0 270px; }
 
 /* Delivery */
 .delivery {
-  margin: -300px 0 120px 0; }
+  margin: -325px 0 120px 0; }
   .delivery .page-title {
     margin-bottom: 32px; }
 
@@ -641,12 +641,13 @@ button {
 
 .reviews__stage {
   display: flex;
-  max-width: 40px;
+  max-width: 46px;
   gap: 8px;
   margin: 0 auto; }
   .reviews__stage .reviews__stage-block {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #ff902b;
     border-radius: 50%;
     background-color: #ffe9d2; }
     .reviews__stage .reviews__stage-block--current {

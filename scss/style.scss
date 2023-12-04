@@ -164,22 +164,21 @@ button {
 .coffee__title {
    display: flex;
    justify-content: space-between;
-   align-items: center;
+   align-items: baseline;
    gap: 10px;
    margin-bottom: 6px;
+   font-size: 24px;
+   color: $brown;
+   letter-spacing: 0.96px;
 
    .coffee__name {
-      color: $brown;
-      font-size: 24px;
       font-weight: 600;
-      letter-spacing: 0.96px;
+      font-size: inherit;
    }
 
-   .coffee_cost {
-      color: $brown;
-      font-size: 24px;
+   .coffee__cost {
       font-weight: 700;
-      letter-spacing: 0.96px;
+      font-size: inherit;
       white-space: nowrap;
    }
 }
@@ -245,6 +244,7 @@ button {
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-shrink: 0;
       width: 43px;
       height: 43px;
       border-radius: 50%;
@@ -320,6 +320,11 @@ button {
    justify-content: space-between;
    align-items: center;
    gap: 142px;
+   margin-left: auto;
+}
+
+.header__logo{
+   flex-shrink: 0;
 }
 
 .header__links {
@@ -405,7 +410,7 @@ button {
 .intro {
    background:
       url("../img/intro/intro-bg.png") calc(100% + 63px) -34px,
-      url("../img/intro/intro-bg.png") 7px calc(100% - 22px),
+      url("../img/intro/intro-bg.png") 7px calc(100% + 5px),
       $flesh;
    background-repeat: no-repeat;
 }
@@ -458,13 +463,15 @@ button {
    padding: 12px 32px;
    color: #fff;
    background-color: #2f2105;
+   box-shadow: inset 0 0 0 3px $brown;
    font-size: 14px;
    font-weight: 600;
    border-radius: 33px;
    transition: all 0.2s linear;
 
    &:hover {
-      background-color: rgba($brown, 0.4);
+      background-color: rgba(0, 0, 0, 0);
+      color: $brown;
    }
 
    .intro__order-icon {
@@ -579,55 +586,59 @@ button {
 
 .popular {
    position: relative;
-   top: -300px;
-   padding-bottom: 62px;
+   top: -325px;
    margin-bottom: 120px;
    background: url("../img/popular/popular-rectangle.svg") bottom center;
    background-size: 100% contain;
    background-repeat: no-repeat;
    z-index: 100;
+
+   .page-title{
+      margin-bottom: 42px;
+   }
 }
 
 .popular__content {
-   max-width: 1268px;
    margin: 0 auto;
-   padding: 41px 0 0 0;
+   padding: 41px 25px 0 25px;
    overflow-y: auto;
 
-   &::-webkit-scrollbar {
-      height: 20px;
-      background-color: rgba(0,0,0,0);
-   }
+   // &::-webkit-scrollbar {
+   //    height: 20px;
+   //    background-color: rgba(0,0,0,0);
+   // }
 
-   &::-webkit-scrollbar-track {
+   // &::-webkit-scrollbar-track {
 
-   }
+   // }
 
-   &::-webkit-scrollbar-thumb {
-      border-left: 25px solid #f9d9aa;
-      border-bottom: 14px solid #f9d9aa;
-      background-color: $orange;
-   }
+   // &::-webkit-scrollbar-thumb {
+   //    border-left: 25px solid #f9d9aa;
+   //    border-bottom: 14px solid #f9d9aa;
+   //    background-color: $orange;
+   // }
 }
 
 .popular__cards {
    display: flex;
-   justify-content: space-between;
+   flex-wrap: wrap;
+   justify-content: center;
    gap: 38px;
-   max-width: 1192px;
    margin: 0 auto;
-   padding: 0 25px 25px 25px;
+   padding: 0 25px 87px 25px;
 
    .coffee {
-      width: 355px;
-      flex: 0 0 auto;
+      max-width: 65%;
+      min-width: 270px;
+      flex: 1 0 270px;
+      
    }
 }
 
 /* Delivery */
 
 .delivery {
-   margin: -300px 0 120px 0;
+   margin: -325px 0 120px 0;
 
    .page-title {
       margin-bottom: 32px;
@@ -844,13 +855,14 @@ button {
 
 .reviews__stage {
    display: flex;
-   max-width: 40px;
+   max-width: 46px;
    gap: 8px;
    margin: 0 auto;
 
    .reviews__stage-block {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid $orange;
       border-radius: 50%;
       background-color: #ffe9d2;
 

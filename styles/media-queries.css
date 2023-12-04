@@ -12,6 +12,9 @@
       .intro__coffee .intro__coffee-item p {
         padding: 10px 25px; } }
 @media (max-width: 915px) {
+  .coffee__info {
+    padding: 19px 0 0 0; }
+
   .header__search {
     position: relative; }
     .header__search input {
@@ -49,10 +52,13 @@
 
   .intro__coffee {
     margin: 0;
-    order: -1; } }
+    order: -1; }
+
+  .reviews__stage {
+    margin: 0; } }
 @media (max-width: 800px) {
-  .header__wrap {
-    justify-content: flex-start; }
+  .header__content {
+    margin-left: 0; }
 
   .header__nav {
     position: absolute;
@@ -85,5 +91,37 @@
       height: 3px;
       border-radius: 1px;
       background-color: #202020; } }
+@media (max-width: 775px) {
+  .reviews {
+    background-size: cover; }
+
+  .reviews__content {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 25px; }
+
+  .reviews__stage-wrap {
+    max-width: calc(100vw - 50px); }
+
+  .reviews__stage {
+    margin: 0 auto; } }
+@media (max-width: 575px) {
+  .intro__coffee {
+    width: 225px;
+    height: 225px;
+    padding: 30px; }
+    .intro__coffee .intro__coffee-item p {
+      height: 40px;
+      font-size: 19px; }
+    .intro__coffee .intro__coffee-item--name {
+      left: -60px; }
+    .intro__coffee .intro__coffee-item--rating {
+      right: -50px; }
+    .intro__coffee .intro__coffee-item--amount {
+      left: -25px;
+      bottom: 25px; } }
+@media (max-width: 500px) {
+  .coffee__title {
+    font-size: 19px; } }
 
 /*# sourceMappingURL=media-queries.css.map */
