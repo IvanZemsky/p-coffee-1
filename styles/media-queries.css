@@ -11,7 +11,7 @@
       height: auto; }
       .intro__coffee .intro__coffee-item p {
         padding: 10px 25px; } }
-@media (max-width: 915px) {
+@media (max-width: 935px) {
   .coffee__info {
     padding: 19px 0 0 0; }
 
@@ -55,7 +55,16 @@
     order: -1; }
 
   .reviews__stage {
-    margin: 0; } }
+    margin: 0; }
+
+  .about__info {
+    padding: 0; } }
+@media (max-width: 850px) {
+  .about {
+    background-size: cover; }
+
+  .about__content {
+    padding-top: 30px; } }
 @media (max-width: 800px) {
   .header__content {
     margin-left: 0; }
@@ -80,9 +89,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 45px;
-    height: 45px;
-    padding: 13px;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    padding: 11px;
     margin-left: auto;
     background-color: #ff902b;
     border-radius: 50%; }
@@ -105,6 +115,14 @@
 
   .reviews__stage {
     margin: 0 auto; } }
+@media (max-width: 670px) {
+  .about__content {
+    flex-direction: column-reverse;
+    align-items: baseline; }
+
+  .about__image-wrap {
+    align-self: baseline;
+    max-width: 30%; } }
 @media (max-width: 575px) {
   .intro__coffee {
     width: 225px;
@@ -121,7 +139,78 @@
       left: -25px;
       bottom: 25px; } }
 @media (max-width: 500px) {
+  .header {
+    margin-top: 10px; }
+    .header--scrolled .header__wrap {
+      padding: 12px 10px; }
+
+  .header.wrapper {
+    padding: 0 10px; }
+
+  .header__wrap {
+    gap: 15px; }
+
+  .header__logo img {
+    max-width: 107px; }
+
+  .intro {
+    background: url("../img/intro/intro-bg.png") 7px calc(100% + 90px), #f6ebda;
+    background-repeat: no-repeat; }
+
+  .intro__info {
+    padding-top: 0; }
+
+  .intro__title {
+    font-size: 25px; }
+
+  .intro__content {
+    padding-top: 75px; }
+
   .coffee__title {
-    font-size: 19px; } }
+    font-size: 19px; }
+
+  .reviews__info {
+    padding: 0; } }
+@media (max-width: 430px) {
+  .wrapper {
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  .intro,
+  .popular,
+  .delivery,
+  .about,
+  .special,
+  .reviews,
+  .subscription {
+    margin-bottom: 75px; }
+
+  .header--scrolled .header__logo {
+    display: none; }
+  .header--scrolled .header__content {
+    flex: 1 0 auto; }
+    .header--scrolled .header__content .header__search, .header--scrolled .header__content .header__search-field, .header--scrolled .header__content input {
+      width: 100%; }
+
+  .header__nav--appeared {
+    transform: translateX(-10px); }
+
+  .intro__content {
+    padding-bottom: 300px; }
+
+  .subscription__content {
+    padding: 70px 20px; }
+
+  .subscription__text {
+    font-size: 25px; }
+
+  .subscription__input {
+    font-size: 13px;
+    height: 40px;
+    padding: 8px 89px 8px 16px; }
+
+  .subscription__btn {
+    width: 80px;
+    font-size: 12px; } }
 
 /*# sourceMappingURL=media-queries.css.map */

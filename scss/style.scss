@@ -79,6 +79,7 @@ button {
    u {
       position: relative;
       text-decoration: none;
+      white-space: nowrap;
    }
 
    u::before {
@@ -602,21 +603,6 @@ button {
    margin: 0 auto;
    padding: 41px 25px 0 25px;
    overflow-y: auto;
-
-   // &::-webkit-scrollbar {
-   //    height: 20px;
-   //    background-color: rgba(0,0,0,0);
-   // }
-
-   // &::-webkit-scrollbar-track {
-
-   // }
-
-   // &::-webkit-scrollbar-thumb {
-   //    border-left: 25px solid #f9d9aa;
-   //    border-bottom: 14px solid #f9d9aa;
-   //    background-color: $orange;
-   // }
 }
 
 .popular__cards {
@@ -628,7 +614,7 @@ button {
    padding: 0 25px 87px 25px;
 
    .coffee {
-      max-width: 65%;
+      max-width: 358px;
       min-width: 270px;
       flex: 1 0 270px;
       
@@ -682,6 +668,7 @@ button {
 
 .about {
    background: url("../img/about/about-bg.png") repeat-x center 100%;
+   margin-bottom: 120px;
 
    .page-title {
       margin-bottom: 24px;
@@ -694,11 +681,12 @@ button {
    align-items: flex-end;
    gap: 35px;
    max-width: 1076px;
-   margin: 0 0 120px auto;
    padding-bottom: 63px;
 }
 
 .about__image-wrap {
+   align-self: center;
+   min-width: 288px;
    padding: 6px;
    border-radius: 12px;
    background-color: rgba(#fff, 0.5);
@@ -792,6 +780,7 @@ button {
 }
 
 .reviews__info {
+   max-width: calc(100vw - 50px);
    padding-right: 54px;
 }
 
@@ -921,10 +910,14 @@ button {
 
 .subscription__btn {
    position: absolute;
+   top: 50%;
    right: 5px;
+   transform: translateY(-50%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
    width: 138px;
-   margin: 5px 0;
-   padding: 12px 32px;
+   height: calc(100% - 10px);
    border-radius: 33px;
    color: #fff;
    font-size: 14px;
