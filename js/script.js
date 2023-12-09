@@ -23,3 +23,5 @@ headerBurger.addEventListener('click', () => {
    const headerMenu = document.querySelector('.header__nav');
    headerMenu.classList.toggle('header__nav--appeared');
 });
+
+

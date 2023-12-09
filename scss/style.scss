@@ -1,5 +1,6 @@
 $brown: #2f2105;
 $orange: #ff902b;
+$dark-orange: #ff6600;
 $yellow: #f4ae26;
 $flesh: #f6ebda;
 $gray: #7e7d7a;
@@ -252,8 +253,14 @@ button {
       background-color: $orange;
       transition: box-shadow 0.15s linear;
 
+      &--selected{
+         background-color: $dark-orange;
+         color: #fff;
+         font-weight: 600;
+      }
+
       &:hover {
-         box-shadow: 0 0 0 4px #ff6600 inset;
+         box-shadow: 0 0 0 4px $dark-orange inset;
       }
 
       img {
@@ -404,6 +411,10 @@ button {
       transform: translateY(-50%);
       width: 20px;
    }
+}
+
+.header__burger{
+   display: none;
 }
 
 /* Intro */
