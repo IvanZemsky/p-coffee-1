@@ -1,9 +1,9 @@
-export class Cart{
-   constructor() {
+export class Cart {
+   constructor(cartContent) {
       this.products = [];
    }
 
-   addProduct(product) { 
+   addProduct(product) {
       const index = this.products.findIndex(item => item.id === product.id);
       if (index === -1) {
          this.products.push({
@@ -11,6 +11,7 @@ export class Cart{
             amount: 1,
             totalCost: product.cost
          });
+
       }
       else {
          const selectedProduct = this.products[index];

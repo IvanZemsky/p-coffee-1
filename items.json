@@ -30,7 +30,7 @@
       "desc": "Bread with meat and vegetables",
       "cost": 12,
       "rating": 4.8,
-      "img": "./img/popular/special-1.png"
+      "img": "./img/special/special-1.png"
    },
    {
       "id": 5,
@@ -38,7 +38,7 @@
       "desc": "Hot Milk with less sugar",
       "cost": 18,
       "rating": 4.5,
-      "img": "./img/popular/special-2.png"
+      "img": "./img/special/special-2.png"
    },
    {
       "id": 6,
@@ -46,7 +46,7 @@
       "desc": "Coffe with ice cream vanilla",
       "cost": 9,
       "rating": 4.6,
-      "img": "./img/popular/special-3.png"
+      "img": "./img/special/special-3.png"
    },
    {
       "id": 7,
@@ -54,7 +54,7 @@
       "desc": "Hot Cappucino",
       "cost": 23,
       "rating": 4.9,
-      "img": "./img/popular/special-4.png"
+      "img": "./img/special/special-4.png"
    },
    {
       "id": 8,
@@ -62,7 +62,7 @@
       "desc": "Hot Moccacino",
       "cost": 20,
       "rating": 4.8,
-      "img": "./img/popular/special-5.png"
+      "img": "./img/special/special-5.png"
    },
    {
       "id": 9,
@@ -70,6 +70,6 @@
       "desc": "Wafle with Ice cream",
       "cost": 14,
       "rating": 4.5,
-      "img": "./img/popular/special-6.png"
+      "img": "./img/special/special-6.png"
    }
 ]
