@@ -1,5 +1,3 @@
-import { Cart } from './Cart.js';
-
 document.addEventListener('DOMContentLoaded', () => {
 
    const cart = [];
