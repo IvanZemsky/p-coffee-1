@@ -70,17 +70,17 @@
     margin-left: 0; }
 
   .header__nav {
+    display: none;
     position: absolute;
     top: 115%;
     right: 0;
-    transform: translateX(100%);
     padding: 30px;
     background-color: #ffddab;
     border-radius: 15px;
     transition: all 0.2s linear;
     z-index: 450; }
     .header__nav--appeared {
-      transform: translateX(-25px); }
+      display: block; }
 
   .header__links {
     flex-direction: column; }

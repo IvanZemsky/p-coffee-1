@@ -102,15 +102,18 @@ $peach: #ffddab;
 }
 
 @media (max-width: 800px) {
+
+
    .header__content {
       margin-left: 0;
    }
 
    .header__nav {
+      display: none;
       position: absolute;
       top: 115%;
       right: 0;
-      transform: translateX(100%);
+      //transform: translateX(100%);
       padding: 30px;
       background-color: $peach;
       border-radius: 15px;
@@ -118,7 +121,8 @@ $peach: #ffddab;
       z-index: 450;
 
       &--appeared {
-         transform: translateX(-25px);
+         //transform: translateX(-25px);
+         display: block;
       }
    }
 

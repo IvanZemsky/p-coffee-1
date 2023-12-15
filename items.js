@@ -1,4 +1,4 @@
-[
+export const items = [
    {
       "id": 1,
       "name": "Vanilla Latte",
@@ -72,4 +72,4 @@
       "rating": 4.5,
       "img": "./img/special/special-6.png"
    }
-]
+];
