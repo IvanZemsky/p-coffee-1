@@ -1,13 +1,16 @@
-import { CardView, CardController, CardModel } from "./Card/Card.js";
-import {items} from '../items.js';
+import { CardView } from "./Card/Card.js";
 
-const cartItems = [];
+const cartProducts = [];
 
 document.addEventListener('DOMContentLoaded', () => {
    const productCards = document.querySelectorAll('.coffee');
-
    const openCartBtn = document.querySelector('.header__cart');
-   openCartBtn.addEventListener('click', () => console.log(cartItems))
+
+   openCartBtn.addEventListener('click', () => {
+      const cartElement = document.querySelector('.cart');
+      cartElement.classList.toggle('cart--opened')
+      console.log(cartProducts);
+   });
 
    productCards.forEach(productCard => {
       const card = new CardView(productCard);
@@ -16,4 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-export {cartItems};
+export {cartProducts};

@@ -1,64 +1,129 @@
-import {cartItems} from '../cards.js';
+import { items } from '../../items.js';
+import { cartProducts } from '../cards.js';
+
+
 
 class CardView {
    constructor(cardElement) {
       this.cardElement = cardElement;
-      this.incrementBtn = this.cardElement.querySelector('.coffee__buy');
+      this.addBtn = this.cardElement.querySelector('[data-action=plus]');
       this.controller = new CardController(this.cardElement.dataset.productId);
 
       this.bindListeners();
    }
 
-   updateCounter(value /*from controller*/) {
-      this.incrementBtn.classList.add('coffee__buy--selected');
-      this.incrementBtn.innerHTML = value;
+   cart = document.querySelector('.cart__content');
+   addBtnCart;
+
+   updateAmount(amount) {
+      this.addBtn.classList.add('coffee__buy--selected');
+      this.addBtn.innerHTML = amount;
    }
 
-   onUpdateCounter = () => {
-      this.updateCounter(this.controller.handleUpdateCounter());
+   mount(productInfo) {
+      let cartCard = this.cart.querySelector(`.cart__product[data-product-id="${productInfo.id}"]`);
+
+      if (!cartCard) {
+         this.cart.innerHTML += `
+            <li class="cart__product" data-product-id="${productInfo.id}">
+               <div class="cart__product-img-wrap">
+                  <img src=${productInfo.img} />
+               </div>
+               <h3 class="cart__product-name">${productInfo.name}</h3>
+               <div class="cart__product-change">
+                  <button type="button" data-action="minus">-</button>
+                  <p class="cart__product-amount">${productInfo.amount}</p>
+                  <button type="button" data-action="plus">+</button>
+               </div>
+               <p class="cart__product-total-cost">${productInfo.totalCost} K</p>
+            </li>`;
+      }
+      else {
+         // !!! изменить в updateAmount !!!
+         cartCard.querySelector('.cart__product-amount').innerText = productInfo.amount;
+         cartCard.querySelector('.cart__product-total-cost').innerText = `${productInfo.totalCost} K`;
+      }
+   }
+
+   onAddToCart = () => {
+      this.updateAmount(this.controller.handleAddToCart(), this.addBtnCart);
+   }
+
+   onRemoveFromCart = () => {
+      this.updateAmount(this.controller.handleRemoveFromCart());
+   }
+
+   getProductInfo() {
+      this.mount(this.controller.handleGetProductInfo());
    }
 
    bindListeners() {
-      this.incrementBtn.addEventListener('click', this.onUpdateCounter);
+      this.addBtn.addEventListener('click', () => {
+         this.onAddToCart();
+         this.getProductInfo();
+      });
+      // this.removeBtn.addEventListener('click', this.onRemoveFromCart);
    }
 
 }
-
 
 class CardController {
    constructor(productId) {
-      this.model = new CardModel(productId);
+      this.model = new CardModel(+productId, cartProducts);
    }
 
-   handleUpdateCounter() {
-      return this.model.changeAmount();
+   handleAddToCart() {
+      return this.model.addToCart();
+   }
+
+   handleRemoveFromCart() {
+      return this.model.removeFromCart();
+   }
+
+   handleGetProductInfo() {
+      return this.model.getCartProduct();
    }
 
 }
-
-ЗАДАЧА: Добавить продукт в cartItems
 
 class CardModel {
    products = items;
-   cartProducts = cartItems;
 
-   constructor(selectedProductId) {
-      this.product = this.products.find(product => product.id === +selectedProductId);
+   constructor(productId, cartProducts) {
+      this.product = this.products.find(product => product.id === +productId);
+      this.productId = productId;
+      this.cartProducts = cartProducts;
    }
 
-   changeTotalCost() {
-      const amount = this.product.amount;
-      return this.product.totalCost = this.product.cost * amount;
+   addToCart() {
+      const cartProduct = this.getCartProduct();
+      ++cartProduct.amount;
+      return cartProduct.amount;
    }
 
-   changeAmount() {
-      const amount = this.product.amount;
-      this.product.amount = amount ? amount + 1 : 1;
-      this.changeTotalCost();
-      console.log(this.product)
-      return this.product.amount;
+   removeFromCart() {
+
    }
 
+   getCartProduct() {
+      let cartProduct = this.cartProducts.find(product => product.id === this.productId);
+
+      if (!cartProduct) {
+         cartProduct = {
+            ...this.product,
+            amount: 0,
+            get totalCost() {
+               return this.cost * this.amount;
+            }
+         };
+
+         this.cartProducts.push(cartProduct);
+         return cartProduct;
+      }
+
+      return cartProduct;
+
+   }
 }
 
-export {CardView, CardController, CardModel};
+export { CardView, CardController, CardModel };

@@ -5,7 +5,6 @@ export const items = [
       "desc": "",
       "cost": 21,
       "rating": 4.8,
-      "purchases": 21,
       "img": "./img/popular/cup-1.png"
    },
    {
