@@ -1,9 +1,9 @@
 import { items } from '../../items.js';
 import { cartProducts } from '../cards.js';
 
-
-
 class CardView {
+   cart = document.querySelector('.cart__content');
+
    constructor(cardElement) {
       this.cardElement = cardElement;
       this.addBtn = this.cardElement.querySelector('[data-action=plus]');
@@ -12,20 +12,8 @@ class CardView {
       this.bindListeners();
    }
 
-   cart = document.querySelector('.cart__content');
-   addBtnCart;
-
-   updateAmount(amount) {
-      this.addBtn.classList.add('coffee__buy--selected');
-      this.addBtn.innerHTML = amount;
-   }
-
-   mount(productInfo) {
-      let cartCard = this.cart.querySelector(`.cart__product[data-product-id="${productInfo.id}"]`);
-
-      if (!cartCard) {
-         this.cart.innerHTML += `
-            <li class="cart__product" data-product-id="${productInfo.id}">
+   createCartItem(productInfo) {
+      return `<li class="cart__product" data-product-id="${productInfo.id}">
                <div class="cart__product-img-wrap">
                   <img src=${productInfo.img} />
                </div>
@@ -37,32 +25,49 @@ class CardView {
                </div>
                <p class="cart__product-total-cost">${productInfo.totalCost} K</p>
             </li>`;
+   }
+
+   renderCartCard(productInfo) {
+      let cartCard = this.cart.querySelector(`.cart__product[data-product-id="${productInfo.id}"]`);
+
+      if (!cartCard) {
+         const cartItem = this.createCartItem(productInfo);
+         this.cart.insertAdjacentHTML('beforeend', cartItem);
+
+         cartCard = this.cart.querySelector(`.cart__product[data-product-id="${productInfo.id}"]`);
+         
+         const addBtnCart = cartCard.querySelector('[data-action=plus]');
+         const removeBtnCart = cartCard.querySelector('[data-action=minus]');
+         this.bindCartListeners(addBtnCart, removeBtnCart);
       }
       else {
-         // !!! изменить в updateAmount !!!
          cartCard.querySelector('.cart__product-amount').innerText = productInfo.amount;
          cartCard.querySelector('.cart__product-total-cost').innerText = `${productInfo.totalCost} K`;
       }
    }
 
+   updateAmount(product) {
+      this.addBtn.classList.add('coffee__buy--selected');
+      this.addBtn.innerHTML = product.amount;
+
+      this.renderCartCard(product);
+   }
+
    onAddToCart = () => {
-      this.updateAmount(this.controller.handleAddToCart(), this.addBtnCart);
+      this.updateAmount(this.controller.handleAddToCart());
    }
 
    onRemoveFromCart = () => {
       this.updateAmount(this.controller.handleRemoveFromCart());
    }
 
-   getProductInfo() {
-      this.mount(this.controller.handleGetProductInfo());
+   bindListeners() {
+      this.addBtn.addEventListener('click', this.onAddToCart)
    }
 
-   bindListeners() {
-      this.addBtn.addEventListener('click', () => {
-         this.onAddToCart();
-         this.getProductInfo();
-      });
-      // this.removeBtn.addEventListener('click', this.onRemoveFromCart);
+   bindCartListeners(addBtnCart, removeBtnCart) {
+      addBtnCart.addEventListener('click', this.onAddToCart);
+      removeBtnCart.addEventListener('click', this.onRemoveFromCart);
    }
 
 }
@@ -80,49 +85,53 @@ class CardController {
       return this.model.removeFromCart();
    }
 
-   handleGetProductInfo() {
-      return this.model.getCartProduct();
-   }
-
 }
 
 class CardModel {
    products = items;
+   cartProducts = cartProducts;
 
-   constructor(productId, cartProducts) {
+   constructor(productId) {
       this.product = this.products.find(product => product.id === +productId);
       this.productId = productId;
-      this.cartProducts = cartProducts;
    }
 
    addToCart() {
-      const cartProduct = this.getCartProduct();
-      ++cartProduct.amount;
-      return cartProduct.amount;
-   }
+      const cartProductIndex = this.getCartProductIndex();
 
-   removeFromCart() {
-
-   }
-
-   getCartProduct() {
-      let cartProduct = this.cartProducts.find(product => product.id === this.productId);
-
-      if (!cartProduct) {
-         cartProduct = {
+      if (cartProductIndex === -1) {
+         const cartProduct = {
             ...this.product,
-            amount: 0,
+            amount: 1,
             get totalCost() {
                return this.cost * this.amount;
             }
          };
 
          this.cartProducts.push(cartProduct);
+         console.log(cartProduct);
          return cartProduct;
       }
+      else {
+         const cartProduct = this.cartProducts[cartProductIndex];
+         ++cartProduct.amount;
+         console.log(cartProduct);
+         return cartProduct;
+      }
+   }
 
-      return cartProduct;
+   removeFromCart() {
+      const cartProductIndex = this.getCartProductIndex();
+      cartProducts[cartProductIndex].amount--;
 
+      if (cartProducts[cartProductIndex].amount === 0) {
+         cartProducts.splice(cartProductIndex, 1);
+      }
+      return cartProducts[cartProductIndex];
+   }
+
+   getCartProductIndex() {
+      return this.cartProducts.findIndex(cartProduct => cartProduct.id === this.productId);
    }
 }
 
