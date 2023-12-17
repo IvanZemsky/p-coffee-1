@@ -3,6 +3,10 @@ import { cartProducts } from '../cards.js';
 
 class CardView {
    cart = document.querySelector('.cart__content');
+   cartTitle = this.cart.querySelector('.cart__title-wrap');
+   cartCard;
+
+   cardBtnIcon = `<img src="./icons/buy.svg" alt="Purchase button">`;
 
    constructor(cardElement) {
       this.cardElement = cardElement;
@@ -27,30 +31,44 @@ class CardView {
             </li>`;
    }
 
-   renderCartCard(productInfo) {
-      let cartCard = this.cart.querySelector(`.cart__product[data-product-id="${productInfo.id}"]`);
+   mountCartCard(product) {
+      this.cartTitle.classList.add('cart__title-wrap--disappeared');
 
-      if (!cartCard) {
-         const cartItem = this.createCartItem(productInfo);
+      if (!this.cartCard) {
+         const cartItem = this.createCartItem(product);
          this.cart.insertAdjacentHTML('beforeend', cartItem);
 
-         cartCard = this.cart.querySelector(`.cart__product[data-product-id="${productInfo.id}"]`);
+         this.cartCard = this.cart.querySelector(`.cart__product[data-product-id="${product.id}"]`);
          
-         const addBtnCart = cartCard.querySelector('[data-action=plus]');
-         const removeBtnCart = cartCard.querySelector('[data-action=minus]');
+         const addBtnCart = this.cartCard.querySelector('[data-action=plus]');
+         const removeBtnCart = this.cartCard.querySelector('[data-action=minus]');
          this.bindCartListeners(addBtnCart, removeBtnCart);
       }
-      else {
-         cartCard.querySelector('.cart__product-amount').innerText = productInfo.amount;
-         cartCard.querySelector('.cart__product-total-cost').innerText = `${productInfo.totalCost} K`;
+   }
+
+   unmountCartCard(product) {
+      this.cartCard.remove();
+      this.cartCard = null;
+      
+      if (!this.cart.contains(this.cart.querySelector('.cart__product'))) {
+         this.cartTitle.classList.remove('cart__title-wrap--disappeared');
       }
    }
 
    updateAmount(product) {
-      this.addBtn.classList.add('coffee__buy--selected');
-      this.addBtn.innerHTML = product.amount;
+      if (product.amount > 0) {
+         this.mountCartCard(product);
+         this.addBtn.classList.add('coffee__buy--selected');
+         this.addBtn.innerHTML = product.amount;
 
-      this.renderCartCard(product);
+         this.cartCard.querySelector('.cart__product-amount').innerText = product.amount;
+         this.cartCard.querySelector('.cart__product-total-cost').innerText = `${product.totalCost} K`;
+      }
+      else {
+         this.unmountCartCard(product);
+         this.cardElement.querySelector('.coffee__buy').innerHTML = this.cardBtnIcon;
+         this.cardElement.querySelector('.coffee__buy').classList.remove('coffee__buy--selected');
+      }
    }
 
    onAddToCart = () => {
@@ -92,15 +110,20 @@ class CardModel {
    cartProducts = cartProducts;
 
    constructor(productId) {
-      this.product = this.products.find(product => product.id === +productId);
+      this.product = this.products.find(product => product.id === productId);
       this.productId = productId;
+   }
+
+   getCartProductIndex() {
+      return this.cartProducts.findIndex(cartProduct => cartProduct.id === this.productId);
    }
 
    addToCart() {
       const cartProductIndex = this.getCartProductIndex();
+      let cartProduct;
 
       if (cartProductIndex === -1) {
-         const cartProduct = {
+         cartProduct = {
             ...this.product,
             amount: 1,
             get totalCost() {
@@ -110,28 +133,29 @@ class CardModel {
 
          this.cartProducts.push(cartProduct);
          console.log(cartProduct);
-         return cartProduct;
       }
       else {
-         const cartProduct = this.cartProducts[cartProductIndex];
+         cartProduct = this.cartProducts[cartProductIndex];
          ++cartProduct.amount;
          console.log(cartProduct);
-         return cartProduct;
       }
+
+      return cartProduct;
    }
 
    removeFromCart() {
       const cartProductIndex = this.getCartProductIndex();
-      cartProducts[cartProductIndex].amount--;
+      const cartProduct = cartProducts[cartProductIndex];
 
-      if (cartProducts[cartProductIndex].amount === 0) {
+      cartProduct.amount--;
+
+      if (cartProduct.amount === 0) {
+         const cartProductAmountObj = {amount: cartProduct.amount};
          cartProducts.splice(cartProductIndex, 1);
+         return cartProductAmountObj;
       }
-      return cartProducts[cartProductIndex];
-   }
 
-   getCartProductIndex() {
-      return this.cartProducts.findIndex(cartProduct => cartProduct.id === this.productId);
+      return cartProduct;
    }
 }
 

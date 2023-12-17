@@ -31,6 +31,8 @@ h6 {
 
 a {
   text-decoration: none; }
+  a:hover, a:active, afocus, a:visited {
+    color: inherit; }
 
 img {
   max-width: 100%;
@@ -91,18 +93,10 @@ button {
   z-index: 650; }
   .cart--opened {
     display: flex; }
-  .cart .cart__title {
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 600;
-    color: #2f2105; }
-    .cart .cart__title--none {
-      display: none; }
   .cart .cart__content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: baseline;
     gap: 30px;
     max-height: 400px;
@@ -111,6 +105,15 @@ button {
     font-size: 21px;
     color: #2f2105;
     overflow-y: auto; }
+    .cart .cart__content .cart__title-wrap {
+      align-self: center; }
+      .cart .cart__content .cart__title-wrap--disappeared {
+        display: none; }
+    .cart .cart__content .cart__title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: #2f2105; }
     .cart .cart__content .cart__product {
       display: flex;
       align-items: center;
