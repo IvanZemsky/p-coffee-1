@@ -2,21 +2,24 @@ import { items } from '../../items.js';
 import { cartProducts } from '../cards.js';
 
 class CardView {
-   cart = document.querySelector('.cart__content');
-   cartTitle = this.cart.querySelector('.cart__title-wrap');
-   cartCard;
+   // элементы корзины
+   static cart = document.querySelector('.cart__content');
+   static cartTitle = CardView.cart.querySelector('.cart__title-wrap');
+   static cartPurchaseBlock = document.getElementById('cart_purchase');
+   static cartTotalCost = document.getElementById('cart_total-cost');
+   static cardBtnIcon = `<img src="./icons/buy.svg" alt="Purchase button">`;
 
-   cardBtnIcon = `<img src="./icons/buy.svg" alt="Purchase button">`;
+   cartCard;
 
    constructor(cardElement) {
       this.cardElement = cardElement;
-      this.addBtn = this.cardElement.querySelector('[data-action=plus]');
+      this.addBtn = this.cardElement.querySelector('.coffee__buy');
       this.controller = new CardController(this.cardElement.dataset.productId);
 
       this.bindListeners();
    }
 
-   createCartItem(productInfo) {
+   createCartCard(productInfo) {
       return `<li class="cart__product" data-product-id="${productInfo.id}">
                <div class="cart__product-img-wrap">
                   <img src=${productInfo.img} />
@@ -32,14 +35,15 @@ class CardView {
    }
 
    mountCartCard(product) {
-      this.cartTitle.classList.add('cart__title-wrap--disappeared');
+      CardView.cartTitle.classList.add('cart__title-wrap--disappeared');
+      CardView.cartPurchaseBlock.classList.add('cart__purchase--showed');
 
       if (!this.cartCard) {
-         const cartItem = this.createCartItem(product);
-         this.cart.insertAdjacentHTML('beforeend', cartItem);
+         const cartItem = this.createCartCard(product);
+         CardView.cart.insertAdjacentHTML('beforeend', cartItem);
 
-         this.cartCard = this.cart.querySelector(`.cart__product[data-product-id="${product.id}"]`);
-         
+         this.cartCard = CardView.cart.querySelector(`.cart__product[data-product-id="${product.id}"]`);
+
          const addBtnCart = this.cartCard.querySelector('[data-action=plus]');
          const removeBtnCart = this.cartCard.querySelector('[data-action=minus]');
          this.bindCartListeners(addBtnCart, removeBtnCart);
@@ -49,13 +53,21 @@ class CardView {
    unmountCartCard(product) {
       this.cartCard.remove();
       this.cartCard = null;
-      
-      if (!this.cart.contains(this.cart.querySelector('.cart__product'))) {
-         this.cartTitle.classList.remove('cart__title-wrap--disappeared');
+
+      // проверка на пустоту корзины
+      if (!CardView.cart.contains(CardView.cart.querySelector('.cart__product'))) {
+         CardView.cartTitle.classList.remove('cart__title-wrap--disappeared');
+         CardView.cartPurchaseBlock.classList.remove('cart__purchase--showed');
       }
    }
 
+   renderCartTotalCost(totalCost) {
+      CardView.cartTotalCost.innerText = `${totalCost} K`
+   }
+
    updateAmount(product) {
+      this.onRenderCartTotalCost();
+
       if (product.amount > 0) {
          this.mountCartCard(product);
          this.addBtn.classList.add('coffee__buy--selected');
@@ -66,8 +78,8 @@ class CardView {
       }
       else {
          this.unmountCartCard(product);
-         this.cardElement.querySelector('.coffee__buy').innerHTML = this.cardBtnIcon;
-         this.cardElement.querySelector('.coffee__buy').classList.remove('coffee__buy--selected');
+         this.addBtn.innerHTML = CardView.cardBtnIcon;
+         this.addBtn.classList.remove('coffee__buy--selected');
       }
    }
 
@@ -77,6 +89,10 @@ class CardView {
 
    onRemoveFromCart = () => {
       this.updateAmount(this.controller.handleRemoveFromCart());
+   }
+
+   onRenderCartTotalCost = () => {
+      this.renderCartTotalCost(this.controller.handleRenderCartTotalCost());
    }
 
    bindListeners() {
@@ -101,6 +117,10 @@ class CardController {
 
    handleRemoveFromCart() {
       return this.model.removeFromCart();
+   }
+
+   handleRenderCartTotalCost() {
+      return this.model.getCartTotalCost();
    }
 
 }
@@ -132,12 +152,10 @@ class CardModel {
          };
 
          this.cartProducts.push(cartProduct);
-         console.log(cartProduct);
       }
       else {
          cartProduct = this.cartProducts[cartProductIndex];
          ++cartProduct.amount;
-         console.log(cartProduct);
       }
 
       return cartProduct;
@@ -150,12 +168,14 @@ class CardModel {
       cartProduct.amount--;
 
       if (cartProduct.amount === 0) {
-         const cartProductAmountObj = {amount: cartProduct.amount};
-         cartProducts.splice(cartProductIndex, 1);
-         return cartProductAmountObj;
+         this.cartProducts.splice(cartProductIndex, 1);
       }
 
       return cartProduct;
+   }
+
+   getCartTotalCost() {
+      return this.cartProducts.reduce((cartTotalCost, cartProduct) => cartTotalCost + cartProduct.totalCost, 0);
    }
 }
 

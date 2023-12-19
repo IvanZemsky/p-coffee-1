@@ -51,7 +51,7 @@ export const items = [
       "id": 7,
       "name": "Cappucino",
       "desc": "Hot Cappucino",
-      "cost": 23,
+      "cost": 21,
       "rating": 4.9,
       "img": "./img/special/special-4.png"
    },

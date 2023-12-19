@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    openCartBtn.addEventListener('click', () => {
       const cartElement = document.querySelector('.cart');
-      cartElement.classList.toggle('cart--opened')
-      console.log(cartProducts);
+      cartElement.classList.toggle('cart--opened');
    });
 
    productCards.forEach(productCard => {
