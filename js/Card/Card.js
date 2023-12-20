@@ -126,16 +126,16 @@ class CardController {
 }
 
 class CardModel {
-   products = items;
-   cartProducts = cartProducts;
+   static products = items;
+   static cartProducts = cartProducts;
 
    constructor(productId) {
-      this.product = this.products.find(product => product.id === productId);
+      this.product = CardModel.products.find(product => product.id === productId);
       this.productId = productId;
    }
 
    getCartProductIndex() {
-      return this.cartProducts.findIndex(cartProduct => cartProduct.id === this.productId);
+      return CardModel.cartProducts.findIndex(cartProduct => cartProduct.id === this.productId);
    }
 
    addToCart() {
@@ -151,10 +151,10 @@ class CardModel {
             }
          };
 
-         this.cartProducts.push(cartProduct);
+         CardModel.cartProducts.push(cartProduct);
       }
       else {
-         cartProduct = this.cartProducts[cartProductIndex];
+         cartProduct = CardModel.cartProducts[cartProductIndex];
          ++cartProduct.amount;
       }
 
@@ -163,19 +163,21 @@ class CardModel {
 
    removeFromCart() {
       const cartProductIndex = this.getCartProductIndex();
-      const cartProduct = cartProducts[cartProductIndex];
+      const cartProduct = CardModel.cartProducts[cartProductIndex];
 
       cartProduct.amount--;
 
       if (cartProduct.amount === 0) {
-         this.cartProducts.splice(cartProductIndex, 1);
+         CardModel.cartProducts.splice(cartProductIndex, 1);
       }
 
       return cartProduct;
    }
 
    getCartTotalCost() {
-      return this.cartProducts.reduce((cartTotalCost, cartProduct) => cartTotalCost + cartProduct.totalCost, 0);
+      return CardModel.cartProducts.reduce((cartTotalCost, cartProduct) => {
+         return cartTotalCost + cartProduct.totalCost;
+      }, 0);
    }
 }
 

@@ -5,6 +5,36 @@ $flesh: #f6ebda;
 $gray: #7e7d7a;
 $peach: #ffddab;
 
+@media (min-width: 1563px) {
+   .reviews .page-title {
+      font-size: 2.22vw;
+   }
+
+   .reviews__info{
+      width: 32.64vw;
+      flex: 0 0 auto;
+   }
+
+   .reviews__desc{
+      max-width: 100%;
+      font-size: 1.25vw;
+   }
+
+   .reviws__slider-block{
+      width: 15.4vw;
+   }
+
+   .reviews__slider-info{
+      min-height: 30.79%;
+   }
+}
+
+@media (max-width: 1200px) {
+   .reviews__stage-wrap{
+      justify-content: flex-start;
+   }
+}
+
 @media (max-width: 1025px) {
    .header__content {
       gap: 35px;
@@ -160,6 +190,10 @@ $peach: #ffddab;
       flex-direction: column;
       align-items: baseline;
       gap: 25px;
+   }
+
+   .reviews__info{
+      flex: 0 0 auto;
    }
 
    .reviews__stage-wrap {
