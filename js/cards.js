@@ -11,9 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cartElement.classList.toggle('cart--opened');
    });
 
-   productCards.forEach(productCard => {
-      const card = new CardView(productCard);
-   });
+   productCards.forEach(productCard => new CardView(productCard));
 
 
 });

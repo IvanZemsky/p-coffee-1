@@ -708,7 +708,7 @@ button {
 .reviews {
   margin-bottom: 120px;
   background: url("../img/reviews/reviews-bg.png") no-repeat left/contain;
-  overflow: hidden; }
+  overflow-x: hidden; }
   .reviews .page-title {
     margin-bottom: 16px; }
 
@@ -716,7 +716,8 @@ button {
   display: flex;
   align-items: center;
   width: 200vw;
-  padding: 102px 0 70px; }
+  padding: 102px 0 70px;
+  overflow-x: hidden; }
 
 .reviews__info {
   flex: 0 1 470px;
@@ -732,23 +733,26 @@ button {
 
 .reviews__slider-blocks {
   display: flex;
-  gap: 82px;
-  margin-bottom: 18px; }
+  gap: 40px;
+  margin-bottom: 18px;
+  transition: transform 0.2s linear; }
 
 .reviews__slider-block {
   position: relative;
-  border: 6px solid rgba(255, 211, 144, 0.63);
-  flex-shrink: 0; }
+  flex-shrink: 0;
+  width: 269px;
+  padding-right: 54px; }
   .reviews__slider-block img {
     width: 100%;
     height: 100%;
+    border: 6px solid rgba(255, 211, 144, 0.63);
     object-fit: cover; }
 
 .reviews__slider-info {
   position: absolute;
-  bottom: 16px;
-  left: 30px;
-  width: 114.12%;
+  bottom: 22px;
+  right: 0;
+  width: 87.01%;
   min-height: 86px;
   padding: 12px;
   box-shadow: 0 0 0 6px rgba(255, 211, 144, 0.63);
