@@ -125,6 +125,7 @@ $peach: #ffddab;
    }
 
    .reviews__stage-wrap {
+      max-width: calc(100vw - 25px);
       justify-content: center;
    }
 
@@ -290,12 +291,15 @@ $peach: #ffddab;
 
    .intro,
    .popular,
-   .delivery,
-   .about,
-   .special,
    .reviews,
    .subscription {
       margin-bottom: 75px;
+   }
+
+   .delivery,
+   .about,
+   .special{
+      padding-top: 75px;
    }
 
    .header{

@@ -759,7 +759,6 @@ button {
 .popular {
    position: relative;
    top: -325px;
-   margin-bottom: 120px;
    background: url("../img/popular/popular-rectangle.svg") bottom center;
    background-size: 100% contain;
    background-repeat: no-repeat;
@@ -794,7 +793,8 @@ button {
 /* Delivery */
 
 .delivery {
-   margin: -325px 0 120px 0;
+   margin-top: -325px;
+   padding-top: 120px;
 
    .page-title {
       margin-bottom: 32px;
@@ -838,7 +838,7 @@ button {
 
 .about {
    background: url("../img/about/about-bg.png") repeat-x center 100%;
-   margin-bottom: 120px;
+   padding-top: 120px;
 
    .page-title {
       margin-bottom: 24px;
@@ -913,6 +913,7 @@ button {
 
 .special {
    margin-bottom: 120px;
+   padding-top: 120px;
 
    .page-title {
       margin-bottom: 32px;
