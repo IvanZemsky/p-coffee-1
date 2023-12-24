@@ -24,7 +24,12 @@ let sliderOffset = 0;
 let finalOffsetStep;
 defineSliderOffsetStep();
 
-window.addEventListener('resize', defineSliderOffsetStep);
+window.addEventListener('resize', () => {
+   sliderOffset = 0;
+   sliderBlocks.style.transform = `translateX(${sliderOffset}px)`;
+   leftArrow.classList.add('reviews__stage-back--blocked');
+   defineSliderOffsetStep();
+});
 
 rightArrow.addEventListener('click', () => {
    sliderOffset -= offsetStep;

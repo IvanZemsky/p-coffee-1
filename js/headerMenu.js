@@ -4,7 +4,6 @@ window.addEventListener('scroll', () => {
 
    if (scrollY > 400) {
       header.classList.add('header--scrolled');
-      //header.classList.add('header--showed');
    }
    else {
       header.classList.remove('header--scrolled');
@@ -13,10 +12,19 @@ window.addEventListener('scroll', () => {
 
 // бургер
 const headerBurger = document.getElementById('header-burger');
+const headerMenu = document.querySelector('.header__nav');
 
 headerBurger.addEventListener('click', () => {
-   const headerMenu = document.querySelector('.header__nav');
+   const cartElement = document.querySelector('.cart');
+
    headerMenu.classList.toggle('header__nav--appeared');
+   //cartElement.classList.remove('cart--opened');
+});
+
+document.body.addEventListener('click', (event) => {
+   if (!event.target.closest('.header__nav') && !event.target.closest('.header__burger')) {
+      headerMenu.classList.remove('header__nav--appeared');
+   }
 });
 
 

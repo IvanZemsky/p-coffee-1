@@ -8,6 +8,7 @@ class CardView {
    static cartPurchaseBlock = document.getElementById('cart_purchase');
    static cartTotalCost = document.getElementById('cart_total-cost');
    static cardBtnIcon = `<img src="./icons/buy.svg" alt="Purchase button">`;
+   static cartBtn = document.querySelector('.header__cart');
 
    cartCard;
 
@@ -39,6 +40,8 @@ class CardView {
       CardView.cartPurchaseBlock.classList.add('cart__purchase--showed');
 
       if (!this.cartCard) {
+         CardView.cartBtn.classList.add('header__cart--active');
+
          const cartItem = this.createCartCard(product);
          CardView.cart.insertAdjacentHTML('beforeend', cartItem);
 
@@ -58,6 +61,7 @@ class CardView {
       if (!CardView.cart.contains(CardView.cart.querySelector('.cart__product'))) {
          CardView.cartTitle.classList.remove('cart__title-wrap--disappeared');
          CardView.cartPurchaseBlock.classList.remove('cart__purchase--showed');
+         CardView.cartBtn.classList.remove('header__cart--active');
       }
    }
 
