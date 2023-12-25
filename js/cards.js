@@ -5,6 +5,7 @@ const cartProducts = [];
 document.addEventListener('DOMContentLoaded', () => {
    const productCards = document.querySelectorAll('.coffee');
    const openCartBtn = document.querySelector('.header__cart'); 
+   const searchContent = document.getElementById('search-content');
 
    productCards.forEach(productCard => new CardView(productCard));
 
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cartElement.classList.toggle('cart--opened');
       headerMenu.classList.remove('header__nav--appeared');
+      searchContent.classList.remove('header__search-content--opened');
    });
 
 });

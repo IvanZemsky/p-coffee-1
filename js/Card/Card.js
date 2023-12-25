@@ -25,13 +25,15 @@ class CardView {
                <div class="cart__product-img-wrap">
                   <img src=${productInfo.img} />
                </div>
-               <h3 class="cart__product-name">${productInfo.name}</h3>
-               <div class="cart__product-change">
-                  <button type="button" data-action="minus">-</button>
-                  <p class="cart__product-amount">${productInfo.amount}</p>
-                  <button type="button" data-action="plus">+</button>
+               <div class="cart__product-controls">
+                  <h3 class="cart__product-name">${productInfo.name}</h3>
+                  <div class="cart__product-change">
+                     <button type="button" data-action="minus">-</button>
+                     <p class="cart__product-amount">${productInfo.amount}</p>
+                     <button type="button" data-action="plus">+</button>
+                  </div>
+                  <p class="cart__product-total-cost">${productInfo.totalCost} K</p>
                </div>
-               <p class="cart__product-total-cost">${productInfo.totalCost} K</p>
             </li>`;
    }
 

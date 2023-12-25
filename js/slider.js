@@ -58,5 +58,3 @@ leftArrow.addEventListener('click', () => {
 
    sliderBlocks.style.transform = `translateX(${sliderOffset}px)`;
 });
-
-

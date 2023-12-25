@@ -10,15 +10,18 @@ window.addEventListener('scroll', () => {
    }
 });
 
+
 // бургер
 const headerBurger = document.getElementById('header-burger');
 const headerMenu = document.querySelector('.header__nav');
 
 headerBurger.addEventListener('click', () => {
    const cartElement = document.querySelector('.cart');
+   const searchContent = document.getElementById('search-content');
 
    headerMenu.classList.toggle('header__nav--appeared');
-   //cartElement.classList.remove('cart--opened');
+   cartElement.classList.remove('cart--opened');
+   searchContent.classList.remove('header__search-content--opened');
 });
 
 document.body.addEventListener('click', (event) => {
@@ -41,13 +44,13 @@ headerLinks.forEach(link => {
          }
       }
 
+      if (window.innerWidth <= 800) {
+         headerMenu.classList.remove('header__nav--appeared');
+      }
+
       link.classList.add('header__link--active');
 
       const targetSection = document.querySelector(link.getAttribute('href'));
       targetSection.scrollIntoView({behavior: 'smooth', block: 'start'});
    });
 });
-
-
-
-

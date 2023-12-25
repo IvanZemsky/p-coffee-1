@@ -2,7 +2,7 @@ export const items = [
    {
       "id": 1,
       "name": "Vanilla Latte",
-      "desc": "",
+      "desc": "Coffee Vanilla Latte",
       "cost": 21,
       "rating": 4.8,
       "img": "./img/popular/cup-1.png"
@@ -10,7 +10,7 @@ export const items = [
    {
       "id": 2,
       "name": "Espresso",
-      "desc": "",
+      "desc": "Coffee Espresso",
       "cost": 12,
       "rating": 4.7,
       "img": "./img/popular/cup-2.png"
@@ -18,7 +18,7 @@ export const items = [
    {
       "id": 3,
       "name": "Hazelnut Latte",
-      "desc": "",
+      "desc": "Coffee Hazenut Latte",
       "cost": 23,
       "rating": 4.5,
       "img": "./img/popular/cup-3.png"

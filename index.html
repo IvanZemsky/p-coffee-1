@@ -41,8 +41,10 @@
             <div class="header__search">
                <div class="header__search-field">
                   <img src="./icons/search.svg" alt="Search">
-                  <input type="text" placeholder="Cappuccino">
+                  <input type="text" id="search" autocomplete="off" placeholder="Cappuccino">
+                  <section class="header__search-content" id="search-content"></section>
                </div>
+
                <button class="header__cart">
                   <img src="./icons/cart.svg" alt="Cart">
                </button>
@@ -636,6 +638,7 @@
    </main>
 
    <script src="./js/headerMenu.js"></script>
+   <script type="module" src="./js/search.js"></script>
    <script type="module" src="./items.js"></script>
    <script type="module" src="./js/Card/Card.js"></script>
    <script type="module" src="./js/cards.js"></script>
