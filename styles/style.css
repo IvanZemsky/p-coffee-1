@@ -3,6 +3,13 @@
   padding: 0;
   margin: 0;
   background-repeat: no-repeat; }
+  *::-webkit-scrollbar {
+    width: 14px;
+    background-color: #fff; }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 144, 43, 0.5);
+    border-radius: 5px;
+    border: 2px solid #fff; }
 
 body {
   font-family: "Poppins";
@@ -206,14 +213,14 @@ button {
         background-color: #ff902b;
         color: #2f2105; }
 
-.coffee {
+.product {
   padding: 6px;
   backdrop-filter: blur(2px);
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   box-shadow: 10px 10px 32px 0 rgba(0, 0, 0, 0.25); }
 
-.coffee__block {
+.product__block {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -221,14 +228,14 @@ button {
   border-radius: 12px;
   background-color: #fff; }
 
-.coffee__image-wrap {
+.product__image-wrap {
   position: relative; }
-  .coffee__image-wrap > img {
+  .product__image-wrap > img {
     width: 100%;
     height: auto;
     border-radius: 12px; }
 
-.coffee__rating-wrap {
+.product__rating-wrap {
   position: absolute;
   top: 7px;
   left: 10px;
@@ -237,29 +244,29 @@ button {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 27px;
   z-index: 150; }
-  .coffee__rating-wrap .coffee__rating {
+  .product__rating-wrap .product__rating {
     display: flex;
     align-items: center;
     gap: 4px;
     padding: 6px 10px;
     background-color: #fff;
     border-radius: 50px; }
-    .coffee__rating-wrap .coffee__rating p {
+    .product__rating-wrap .product__rating p {
       color: #2f2105;
       font-weight: 700;
       letter-spacing: 0.56px; }
-    .coffee__rating-wrap .coffee__rating .coffee__star {
+    .product__rating-wrap .product__rating .product__star {
       width: 14px;
       height: 14px;
       user-select: none; }
 
-.coffee__info {
+.product__info {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   padding: 19px 15px 0 11px; }
 
-.coffee__title {
+.product__title {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -268,31 +275,31 @@ button {
   font-size: 24px;
   color: #2f2105;
   letter-spacing: 0.96px; }
-  .coffee__title .coffee__name {
+  .product__title .product__name {
     font-weight: 600;
     font-size: inherit; }
-  .coffee__title .coffee__cost {
+  .product__title .product__cost {
     font-weight: 700;
     font-size: inherit;
     white-space: nowrap; }
 
-.coffee__purchasing {
+.product__purchasing {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
   margin-top: auto; }
-  .coffee__purchasing .coffee__desc {
+  .product__purchasing .product__desc {
     max-width: 162px;
     color: #7e7d7a;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
     letter-spacing: 0.56px; }
-  .coffee__purchasing .coffee__type-buttons {
+  .product__purchasing .product__type-buttons {
     display: flex;
     gap: 24px; }
-    .coffee__purchasing .coffee__type-buttons .coffee__button {
+    .product__purchasing .product__type-buttons .product__button {
       position: relative;
       display: flex;
       justify-content: center;
@@ -306,20 +313,20 @@ button {
       font-weight: 600;
       letter-spacing: 0.64px;
       transition: all 0.15s linear; }
-      .coffee__purchasing .coffee__type-buttons .coffee__button:hover {
+      .product__purchasing .product__type-buttons .product__button:hover {
         border-color: rgba(255, 144, 43, 0.6);
         color: rgba(255, 144, 43, 0.9); }
-      .coffee__purchasing .coffee__type-buttons .coffee__button:has(.coffee__radio:checked) {
+      .product__purchasing .product__type-buttons .product__button:has(.product__radio:checked) {
         color: #ff902b;
         border-color: #ff902b; }
-      .coffee__purchasing .coffee__type-buttons .coffee__button .coffee__radio {
+      .product__purchasing .product__type-buttons .product__button .product__radio {
         position: absolute;
         width: 100%;
         height: 100%;
         opacity: 0;
         z-index: 1;
         cursor: pointer; }
-  .coffee__purchasing .coffee__buy {
+  .product__purchasing .product__buy {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -329,13 +336,13 @@ button {
     border-radius: 50%;
     background-color: #ff902b;
     transition: box-shadow 0.15s linear; }
-    .coffee__purchasing .coffee__buy--selected {
+    .product__purchasing .product__buy--selected {
       background-color: #ff6600;
       color: #fff;
       font-weight: 600; }
-    .coffee__purchasing .coffee__buy:hover {
+    .product__purchasing .product__buy:hover {
       box-shadow: 0 0 0 4px #ff6600 inset; }
-    .coffee__purchasing .coffee__buy img {
+    .product__purchasing .product__buy img {
       width: 18px;
       height: 17px; }
 
@@ -562,7 +569,7 @@ button {
     color: #fff;
     background-color: #ff902b; }
 
-.intro__coffee {
+.intro__product {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -574,19 +581,19 @@ button {
   padding: 90.5px 46.5px;
   border-radius: 50%;
   background: url("../img/intro/intro-circle-lines.svg") no-repeat center, #2f2105; }
-  .intro__coffee > img {
+  .intro__product > img {
     position: relative;
     top: 2px;
     width: 100%;
     height: auto; }
-  .intro__coffee .intro__coffee-item {
+  .intro__product .intro__product-item {
     position: absolute;
     padding: 6px;
     backdrop-filter: blur(2px);
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 100;
     box-shadow: -2px 19px 32px 0 rgba(48, 45, 38, 0.19); }
-    .intro__coffee .intro__coffee-item p {
+    .intro__product .intro__product-item p {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -596,26 +603,26 @@ button {
       font-size: 24px;
       font-weight: 600;
       border-radius: 42px; }
-    .intro__coffee .intro__coffee-item--name {
+    .intro__product .intro__product-item--name {
       width: 283px;
       top: 25px;
       left: -95px;
       border-radius: 62px; }
-      .intro__coffee .intro__coffee-item--name p {
+      .intro__product .intro__product-item--name p {
         padding: 14px 27px; }
-    .intro__coffee .intro__coffee-item--rating {
+    .intro__product .intro__product-item--rating {
       width: 150px;
       top: 88px;
       right: -35px;
       border-radius: 62px; }
-      .intro__coffee .intro__coffee-item--rating p {
+      .intro__product .intro__product-item--rating p {
         gap: 4px;
         padding: 17px 30px;
         border-radius: 50px; }
-      .intro__coffee .intro__coffee-item--rating img {
+      .intro__product .intro__product-item--rating img {
         width: 24px;
         height: 24px; }
-    .intro__coffee .intro__coffee-item--amount {
+    .intro__product .intro__product-item--amount {
       width: 155px;
       bottom: 33px;
       left: 15px;
@@ -644,7 +651,7 @@ button {
   gap: 38px;
   margin: 0 auto;
   padding: 0 25px 87px 25px; }
-  .popular__cards .coffee {
+  .popular__cards .product {
     max-width: 358px;
     min-width: 270px;
     flex: 1 0 270px; }
@@ -756,7 +763,7 @@ button {
   grid-template-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   gap: 40px; }
-  .special__cards .coffee {
+  .special__cards .product {
     box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.16); }
 
 /* Reviews */

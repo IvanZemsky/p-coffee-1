@@ -30,12 +30,12 @@ $peach: #ffddab;
       gap: 35px;
    }
 
-   .intro__coffee {
+   .intro__product {
       align-self: center;
       width: 300px;
       height: 300px;
 
-      .intro__coffee-item {
+      .intro__product-item {
          width: auto;
          height: auto;
 
@@ -47,7 +47,7 @@ $peach: #ffddab;
 }
 
 @media (max-width: 935px) {
-   .coffee__info {
+   .product__info {
       padding: 19px 0 0 0;
    }
 
@@ -103,7 +103,7 @@ $peach: #ffddab;
       justify-content: center;
    }
 
-   .intro__coffee {
+   .intro__product {
       margin: 0;
       order: -1;
    }
@@ -277,12 +277,12 @@ $peach: #ffddab;
 }
 
 @media (max-width: 575px) {
-   .intro__coffee {
+   .intro__product {
       width: 225px;
       height: 225px;
       padding: 30px;
 
-      .intro__coffee-item {
+      .intro__product-item {
          p {
             height: 40px;
             font-size: 19px;
@@ -348,7 +348,7 @@ $peach: #ffddab;
       padding-top: 75px;
    }
 
-   .coffee__title {
+   .product__title {
       font-size: 19px;
    }
 

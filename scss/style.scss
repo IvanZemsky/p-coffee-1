@@ -11,6 +11,17 @@ $peach: #ffddab;
    padding: 0;
    margin: 0;
    background-repeat: no-repeat;
+
+   &::-webkit-scrollbar {
+      width: 14px;
+      background-color: #fff;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      background-color: rgba($orange, 0.5);
+      border-radius: 5px;
+      border: 2px solid #fff;
+   }
 }
 
 body {
@@ -273,7 +284,7 @@ button {
    }
 }
 
-.coffee {
+.product {
    padding: 6px;
    backdrop-filter: blur(2px);
    background-color: rgba(#fff, 0.5);
@@ -281,7 +292,7 @@ button {
    box-shadow: 10px 10px 32px 0 rgba(#000, 0.25);
 }
 
-.coffee__block {
+.product__block {
    display: flex;
    flex-direction: column;
    height: 100%;
@@ -290,7 +301,7 @@ button {
    background-color: #fff;
 }
 
-.coffee__image-wrap {
+.product__image-wrap {
    position: relative;
 
    > img {
@@ -300,7 +311,7 @@ button {
    }
 }
 
-.coffee__rating-wrap {
+.product__rating-wrap {
    position: absolute;
    top: 7px;
    left: 10px;
@@ -310,7 +321,7 @@ button {
    border-radius: 27px;
    z-index: 150;
 
-   .coffee__rating {
+   .product__rating {
       display: flex;
       align-items: center;
       gap: 4px;
@@ -324,7 +335,7 @@ button {
          letter-spacing: 0.56px;
       }
 
-      .coffee__star {
+      .product__star {
          width: 14px;
          height: 14px;
          user-select: none;
@@ -332,14 +343,14 @@ button {
    }
 }
 
-.coffee__info {
+.product__info {
    display: flex;
    flex-direction: column;
    flex-grow: 1;
    padding: 19px 15px 0 11px;
 }
 
-.coffee__title {
+.product__title {
    display: flex;
    justify-content: space-between;
    align-items: baseline;
@@ -349,19 +360,19 @@ button {
    color: $brown;
    letter-spacing: 0.96px;
 
-   .coffee__name {
+   .product__name {
       font-weight: 600;
       font-size: inherit;
    }
 
-   .coffee__cost {
+   .product__cost {
       font-weight: 700;
       font-size: inherit;
       white-space: nowrap;
    }
 }
 
-.coffee__purchasing {
+.product__purchasing {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -369,7 +380,7 @@ button {
    margin-top: auto;
    // inside is <p> or buttons
 
-   .coffee__desc {
+   .product__desc {
       max-width: 162px;
       color: $gray;
       font-size: 14px;
@@ -378,11 +389,11 @@ button {
       letter-spacing: 0.56px;
    }
 
-   .coffee__type-buttons {
+   .product__type-buttons {
       display: flex;
       gap: 24px;
 
-      .coffee__button {
+      .product__button {
          position: relative;
          display: flex;
          justify-content: center;
@@ -402,12 +413,12 @@ button {
             color: rgba($orange, 0.9);
          }
 
-         &:has(.coffee__radio:checked) {
+         &:has(.product__radio:checked) {
             color: $orange;
             border-color: $orange;
          }
 
-         .coffee__radio {
+         .product__radio {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -418,7 +429,7 @@ button {
       }
    }
 
-   .coffee__buy {
+   .product__buy {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -473,7 +484,7 @@ button {
          box-shadow: 0 0 20px 0 rgba($gray, 0.2);
       }
 
-      .header__search-content{
+      .header__search-content {
          top: 65px;
       }
    }
@@ -579,20 +590,20 @@ button {
    overflow-y: auto;
    z-index: 300;
 
-   &--opened{
+   &--opened {
       display: block;
    }
 }
 
-.header__seach-item{
+.header__seach-item {
    padding: 7px;
    line-height: 1.2;
    border-radius: 10px;
    transition: background-color 0.2s;
    cursor: pointer;
 
-   &:hover{
-      background-color: #ffe9d2; 
+   &:hover {
+      background-color: #ffe9d2;
    }
 }
 
@@ -745,7 +756,7 @@ button {
    }
 }
 
-.intro__coffee {
+.intro__product {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -767,7 +778,7 @@ button {
       height: auto;
    }
 
-   .intro__coffee-item {
+   .intro__product-item {
       position: absolute;
       padding: 6px;
       backdrop-filter: blur(2px);
@@ -854,7 +865,7 @@ button {
    margin: 0 auto;
    padding: 0 25px 87px 25px;
 
-   .coffee {
+   .product {
       max-width: 358px;
       min-width: 270px;
       flex: 1 0 270px;
@@ -997,7 +1008,7 @@ button {
    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
    gap: 40px;
 
-   .coffee {
+   .product {
       box-shadow: 0 6px 16px 0 rgba(#000, 0.16);
    }
 }

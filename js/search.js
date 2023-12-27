@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
          const searchValue = searchInput.value.toLowerCase();
          const searchedProducts = items.filter(item => item.name.toLowerCase().includes(searchValue));
-         console.log(searchedProducts);
 
          if (searchedProducts.length) {
             searchContent.classList.add('header__search-content--opened');

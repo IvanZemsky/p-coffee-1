@@ -3,7 +3,7 @@ import { CardView } from "./Card/Card.js";
 const cartProducts = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-   const productCards = document.querySelectorAll('.coffee');
+   const productCards = document.querySelectorAll('.product');
    const openCartBtn = document.querySelector('.header__cart'); 
    const searchContent = document.getElementById('search-content');
 

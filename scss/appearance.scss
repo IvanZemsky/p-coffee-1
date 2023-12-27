@@ -1,0 +1,36 @@
+.element-appearance,
+.delivery__card-appearance,
+.about-appearance{
+   transition: all 0.3s ease-out;
+}
+
+.intro__coffee.element-appearance,
+.popular__cards.element-appearance{
+   opacity: 0;
+   transform: translateX(-50px);
+
+   &.element-show{
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.about__image-wrap.about-appearance{
+   opacity: 0;
+   transform: rotate(-15deg) translateX(-30%);
+
+   &.element-show{
+      opacity: 1;
+      transform: rotate(0) translateX(0);
+   }
+}
+
+.delivery__card-appearance{
+   opacity: 0;
+   transform: translateY(50px);
+
+   &.delivery__card-show{
+      opacity: 1;
+      transform: translateY(0);
+   }
+}

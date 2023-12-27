@@ -14,7 +14,7 @@ class CardView {
 
    constructor(cardElement) {
       this.cardElement = cardElement;
-      this.addBtn = this.cardElement.querySelector('.coffee__buy');
+      this.addBtn = this.cardElement.querySelector('.product__buy');
       this.controller = new CardController(this.cardElement.dataset.productId);
 
       this.bindListeners();
@@ -76,7 +76,7 @@ class CardView {
 
       if (product.amount > 0) {
          this.mountCartCard(product);
-         this.addBtn.classList.add('coffee__buy--selected');
+         this.addBtn.classList.add('product__buy--selected');
          this.addBtn.innerHTML = product.amount;
 
          this.cartCard.querySelector('.cart__product-amount').innerText = product.amount;
@@ -85,7 +85,7 @@ class CardView {
       else {
          this.unmountCartCard(product);
          this.addBtn.innerHTML = CardView.cardBtnIcon;
-         this.addBtn.classList.remove('coffee__buy--selected');
+         this.addBtn.classList.remove('product__buy--selected');
       }
    }
 
