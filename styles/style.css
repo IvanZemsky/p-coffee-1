@@ -1,3 +1,6 @@
+:root {
+  --wrapper-padding: 25px; }
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -57,7 +60,7 @@ button {
 /* --Blocks-- */
 .wrapper {
   max-width: 1220px;
-  padding: 0 25px;
+  padding: 0 var(--wrapper-padding);
   margin: 0 auto; }
 
 .page-title {
@@ -143,6 +146,7 @@ button {
           object-fit: cover; }
       .cart .cart__content .cart__product .cart__product-controls {
         display: flex;
+        align-items: center;
         flex-grow: 1; }
         .cart .cart__content .cart__product .cart__product-controls .cart__product-name {
           width: 180px;
@@ -343,7 +347,8 @@ button {
     height: 43px;
     border-radius: 50%;
     background-color: #ff902b;
-    transition: box-shadow 0.15s linear; }
+    transition: box-shadow 0.15s linear;
+    user-select: none; }
     .product__purchasing .product__buy--selected {
       background-color: #ff6600;
       color: #fff;

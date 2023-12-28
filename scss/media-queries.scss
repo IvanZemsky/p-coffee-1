@@ -5,6 +5,28 @@ $flesh: #f6ebda;
 $gray: #7e7d7a;
 $peach: #ffddab;
 
+@media (hover: none) {
+   .header__cart:hover{
+      background-color: rgba($orange, 0.5);
+   }
+
+   .intro__order-link:hover,
+   .subscription__btn:hover{
+      background-color: $brown;
+      color: #fff;
+   }
+
+   .intro__more-link:hover{
+      color: $yellow;
+      background: none;
+   }
+
+   .about__button:hover{
+      background-color: $brown;
+      color: $yellow;
+   }
+}
+
 @media (min-width: 1563px) {
    .reviews .page-title {
       font-size: 2.22vw;
@@ -78,12 +100,11 @@ $peach: #ffddab;
          width: 20px;
          height: 20px;
       }
-      
-      &--active::after{
+
+      &--active::after {
          top: 5px;
          right: 3px;
       }
-   
    }
 
    .intro__content {
@@ -141,6 +162,26 @@ $peach: #ffddab;
    }
 }
 
+@media (max-width: 935px) and (pointer:none), (max-width: 935px) and (pointer:coarse) {
+   .reviews__slider{
+      width: calc(100vw - 50px);
+      overflow-x: scroll;
+      
+      &::-webkit-scrollbar {
+         display: none;
+      }
+
+   }
+
+   .reviews__slider-blocks{
+      margin-right: 25px;
+   }
+
+   .reviews__stage-wrap{
+      display: none;
+   }
+}
+
 @media (max-width: 850px) {
    .about {
       margin-top: 50px;
@@ -161,7 +202,7 @@ $peach: #ffddab;
       display: none;
       position: absolute;
       top: 115%;
-      right: 25px;
+      right: var(--wrapper-padding);
       padding: 30px;
       background-color: $peach;
       border-radius: 15px;
@@ -177,11 +218,12 @@ $peach: #ffddab;
       flex-direction: column;
    }
 
-   .header__search{
+   .header__search {
       margin-left: auto;
    }
 
-   .header__search-field, .header__search {
+   .header__search-field,
+   .header__search {
       width: 100%;
       max-width: 240px;
    }
@@ -202,7 +244,7 @@ $peach: #ffddab;
       margin-left: auto;
       background-color: $orange;
       border-radius: 50%;
-   
+
       span {
          width: 100%;
          height: 3px;
@@ -213,10 +255,10 @@ $peach: #ffddab;
 }
 
 @media (max-width: 750px) {
-   .cart{
-     right: 50%;
-     transform: translateX(50%);
-     width: calc(100%);
+   .cart {
+      right: 50%;
+      transform: translateX(50%);
+      width: calc(100vw - var(--wrapper-padding) * 2);
    }
 }
 
@@ -237,42 +279,45 @@ $peach: #ffddab;
 }
 
 @media (max-width: 630px) {
-   .cart{
+   .cart {
       max-height: 400px;
       padding: 15px 15px 90px 15px;
 
-      .cart__content{
-         .cart__product{
+      .cart__content {
+         .cart__product {
             padding-right: 0;
 
-            .cart__product-img-wrap{
+            .cart__product-img-wrap {
                width: 100px;
                height: 100px;
             }
 
-            .cart__product-controls{
+            .cart__product-controls {
+               align-items: baseline;
                flex-direction: column;
                flex: 1 1 auto;
                gap: 10px;
 
-               .cart__product-name{
+               .cart__product-name {
                   flex-shrink: 1;
                   width: auto;
                   margin-right: 0;
                }
 
-               .cart__product-change{
+               .cart__product-change {
                   margin-right: 0;
                }
 
-               .cart__product-total-cost{
+               .cart__product-total-cost {
                   margin-left: 0;
+
+                  span {
+                     text-align: left;
+                  }
                }
             }
          }
-
       }
-
    }
 }
 
@@ -305,6 +350,9 @@ $peach: #ffddab;
 }
 
 @media (max-width: 500px) {
+   :root{
+      --wrapper-padding: 15px;
+   }
    .header {
       margin-top: 10px;
 
@@ -358,11 +406,6 @@ $peach: #ffddab;
 }
 
 @media (max-width: 430px) {
-   .wrapper {
-      padding-left: 15px;
-      padding-right: 15px;
-   }
-
    .intro,
    .reviews,
    .subscription {
@@ -392,7 +435,7 @@ $peach: #ffddab;
       }
    }
 
-   .header__search{
+   .header__search {
       margin-left: 0;
    }
 
@@ -400,13 +443,13 @@ $peach: #ffddab;
       right: 10px;
    }
 
-   .cart{
-      .cart__content{
-         .cart__product{
+   .cart {
+      .cart__content {
+         .cart__product {
             font-size: 16px;
 
-            .cart__product-controls{
-               .cart__product-name{
+            .cart__product-controls {
+               .cart__product-name {
                   height: 19px;
                }
             }
@@ -443,7 +486,7 @@ $peach: #ffddab;
       width: 93px;
    }
 
-   .header__search-field input::placeholder{
+   .header__search-field input::placeholder {
       font-size: 11px;
    }
 }
