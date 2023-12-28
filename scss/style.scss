@@ -202,6 +202,7 @@ button {
 
             .cart__product-change {
                display: flex;
+               align-items: center;
                gap: 14px;
                margin-right: 20px;
 
@@ -224,10 +225,15 @@ button {
             }
 
             .cart__product-total-cost {
-               width: 68px;
                margin-left: auto;
                white-space: nowrap;
                flex-shrink: 0;
+
+               span {
+                  display: inline-block;
+                  min-width: 36px;
+                  text-align: right;
+               }
             }
          }
       }
@@ -254,10 +260,14 @@ button {
       .cart__total-cost {
          font-size: 17px;
          font-weight: 500;
+         white-space: nowrap;
+         flex-shrink: 0;
 
          span {
             display: inline-block;
-            width: 65px;
+            min-width: 40px;
+            margin-left: auto;
+            text-align: right;
          }
       }
 

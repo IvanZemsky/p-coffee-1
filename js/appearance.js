@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
    }
 
-   // для .intro__coffee, .popular__cards
+   // для .intro__product, .popular__cards
    const movingObserver = new IntersectionObserver(onEntryMoving, { threshold: 0.1 });
    const movingElements = document.querySelectorAll('.element-appearance');
    movingElements.forEach(element => movingObserver.observe(element));

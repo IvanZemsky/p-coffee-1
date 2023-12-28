@@ -1,0 +1,14 @@
+{
+    "name": "Cafe Street",
+    "short_name": "Cafe Street",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffddab",
+    "background_color": "#ffddab",
+    "display": "standalone"
+}

@@ -32,7 +32,12 @@ class CardView {
                      <p class="cart__product-amount">${productInfo.amount}</p>
                      <button type="button" data-action="plus">+</button>
                   </div>
-                  <p class="cart__product-total-cost">${productInfo.totalCost} K</p>
+                  <p class="cart__product-total-cost">
+                     <span>
+                        ${productInfo.totalCost}
+                     </span> 
+                     K
+                  </p>
                </div>
             </li>`;
    }
@@ -68,7 +73,7 @@ class CardView {
    }
 
    renderCartTotalCost(totalCost) {
-      CardView.cartTotalCost.innerText = `${totalCost} K`
+      CardView.cartTotalCost.innerHTML = `${totalCost}`
    }
 
    updateAmount(product) {
@@ -80,7 +85,7 @@ class CardView {
          this.addBtn.innerHTML = product.amount;
 
          this.cartCard.querySelector('.cart__product-amount').innerText = product.amount;
-         this.cartCard.querySelector('.cart__product-total-cost').innerText = `${product.totalCost} K`;
+         this.cartCard.querySelector('.cart__product-total-cost').innerHTML = `<span>${product.totalCost}</span> K`;
       }
       else {
          this.unmountCartCard(product);

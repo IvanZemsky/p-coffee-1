@@ -5,6 +5,13 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Cafe Street</title>
+   <link rel="apple-touch-icon" sizes="180x180" href="./icons/favicon/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon/favicon-16x16.png">
+   <link rel="manifest" href="./icons/favicon/site.webmanifest">
+   <link rel="mask-icon" href="./icons/favicon/safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#ffddab">
+   <meta name="theme-color" content="#ffddab">
    <link rel="stylesheet" href="./styles/appearance.css">
    <link rel="stylesheet" href="./styles/fonts.css">
    <link rel="stylesheet" href="./styles/style.css">
@@ -67,7 +74,7 @@
             </ul>
             <div class="cart__purchase" id="cart_purchase">
                <p class="cart__total-cost">
-                  Total cost: <span id="cart_total-cost"></span>
+                  Total cost: <span id="cart_total-cost"></span> K
                </p>
                <button class="cart__buy-btn" id="cart_purchase-btn" type="button">
                   Order
@@ -99,18 +106,18 @@
                </div>
             </div>
 
-            <div class="intro__coffee element-appearance">
+            <div class="intro__product element-appearance">
                <img src="./img/intro/intro-cup.png" alt="Popular now: Cappuccino">
-               <div class="intro__coffee-item intro__coffee-item--name">
+               <div class="intro__product-item intro__product-item--name">
                   <p>Capputino</p>
                </div>
-               <div class="intro__coffee-item intro__coffee-item--rating">
+               <div class="intro__product-item intro__product-item--rating">
                   <p>
                      4.8
                      <img src="./icons/star.svg" alt="Star">
                   </p>
                </div>
-               <div class="intro__coffee-item intro__coffee-item--amount">
+               <div class="intro__product-item intro__product-item--amount">
                   <p>18K</p>
                </div>
 
@@ -494,7 +501,7 @@
 
                <div class="reviews__slider">
                   <div class="reviews__slider-blocks" id="slider_blocks">
-                     
+
                      <div class="reviews__slider-block">
                         <img src="./img/reviews/reviewer-1.png" alt="First reviewer - Naura">
                         <div class="reviews__slider-info">
@@ -607,13 +614,16 @@
                   <div class="reviews__stage-wrap">
                      <button class="reviews__stage-back reviews__stage-back--blocked" id="slider_left-arrow">
                         <svg width="51" height="21" viewBox="0 0 51 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M48.0621 7.51682H9.0871L12.3371 4.29182C12.8079 3.82106 13.0723 3.18258 13.0723 2.51682C13.0723 1.85107 12.8079 1.21258 12.3371 0.741821C11.8663 0.271062 11.2279 0.0065918 10.5621 0.0065918C9.89635 0.00659179 9.25786 0.271062 8.7871 0.741821L1.2871 8.24182C1.05278 8.47423 0.866796 8.75073 0.739875 9.05538C0.612953 9.36003 0.547607 9.68679 0.547607 10.0168C0.547607 10.3469 0.612953 10.6736 0.739875 10.9783C0.866796 11.2829 1.05278 11.5594 1.2871 11.7918L8.7871 19.2918C9.01951 19.5261 9.29601 19.7121 9.60066 19.839C9.90531 19.966 10.2321 20.0313 10.5621 20.0313C10.8921 20.0313 11.2189 19.966 11.5235 19.839C11.8282 19.7121 12.1047 19.5261 12.3371 19.2918C12.5714 19.0594 12.7574 18.7829 12.8843 18.4783C13.0113 18.1736 13.0766 17.8469 13.0766 17.5168C13.0766 17.1868 13.0113 16.86 12.8843 16.5554C12.7574 16.2507 12.5714 15.9742 12.3371 15.7418L9.0871 12.5168H48.0621C48.7251 12.5168 49.361 12.2534 49.8299 11.7846C50.2987 11.3157 50.5621 10.6799 50.5621 10.0168C50.5621 9.35378 50.2987 8.7179 49.8299 8.24905C49.361 7.78021 48.7251 7.51682 48.0621 7.51682Z" fill="#ff902b"/>
-                           </svg>                         
+                           <path
+                              d="M48.0621 7.51682H9.0871L12.3371 4.29182C12.8079 3.82106 13.0723 3.18258 13.0723 2.51682C13.0723 1.85107 12.8079 1.21258 12.3371 0.741821C11.8663 0.271062 11.2279 0.0065918 10.5621 0.0065918C9.89635 0.00659179 9.25786 0.271062 8.7871 0.741821L1.2871 8.24182C1.05278 8.47423 0.866796 8.75073 0.739875 9.05538C0.612953 9.36003 0.547607 9.68679 0.547607 10.0168C0.547607 10.3469 0.612953 10.6736 0.739875 10.9783C0.866796 11.2829 1.05278 11.5594 1.2871 11.7918L8.7871 19.2918C9.01951 19.5261 9.29601 19.7121 9.60066 19.839C9.90531 19.966 10.2321 20.0313 10.5621 20.0313C10.8921 20.0313 11.2189 19.966 11.5235 19.839C11.8282 19.7121 12.1047 19.5261 12.3371 19.2918C12.5714 19.0594 12.7574 18.7829 12.8843 18.4783C13.0113 18.1736 13.0766 17.8469 13.0766 17.5168C13.0766 17.1868 13.0113 16.86 12.8843 16.5554C12.7574 16.2507 12.5714 15.9742 12.3371 15.7418L9.0871 12.5168H48.0621C48.7251 12.5168 49.361 12.2534 49.8299 11.7846C50.2987 11.3157 50.5621 10.6799 50.5621 10.0168C50.5621 9.35378 50.2987 8.7179 49.8299 8.24905C49.361 7.78021 48.7251 7.51682 48.0621 7.51682Z"
+                              fill="#ff902b" />
+                        </svg>
                      </button>
                      <button class="reviews__stage-forth" id="slider_right-arrow">
                         <svg width="50" height="20" viewBox="0 0 50 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.5 10H47.5M47.5 10L40 17.5M47.5 10L40 2.5" stroke="#ff902b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                           </svg> 
+                           <path d="M2.5 10H47.5M47.5 10L40 17.5M47.5 10L40 2.5" stroke="#ff902b" stroke-width="5"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                      </button>
                   </div>
                </div>

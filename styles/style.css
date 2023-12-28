@@ -154,6 +154,7 @@ button {
           text-overflow: ellipsis; }
         .cart .cart__content .cart__product .cart__product-controls .cart__product-change {
           display: flex;
+          align-items: center;
           gap: 14px;
           margin-right: 20px; }
           .cart .cart__content .cart__product .cart__product-controls .cart__product-change .cart__product-amount {
@@ -170,10 +171,13 @@ button {
             border-radius: 4px;
             user-select: none; }
         .cart .cart__content .cart__product .cart__product-controls .cart__product-total-cost {
-          width: 68px;
           margin-left: auto;
           white-space: nowrap;
           flex-shrink: 0; }
+          .cart .cart__content .cart__product .cart__product-controls .cart__product-total-cost span {
+            display: inline-block;
+            min-width: 36px;
+            text-align: right; }
   .cart .cart__purchase {
     position: absolute;
     bottom: 0;
@@ -191,10 +195,14 @@ button {
       display: flex; }
     .cart .cart__purchase .cart__total-cost {
       font-size: 17px;
-      font-weight: 500; }
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0; }
       .cart .cart__purchase .cart__total-cost span {
         display: inline-block;
-        width: 65px; }
+        min-width: 40px;
+        margin-left: auto;
+        text-align: right; }
     .cart .cart__purchase .cart__buy-btn {
       display: flex;
       justify-content: center;
