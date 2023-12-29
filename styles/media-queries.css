@@ -1,6 +1,6 @@
 @media (hover: none) {
   .header__cart:hover {
-    background-color: rgba(255, 144, 43, 0.5); }
+    background-color: #ffc486; }
 
   .intro__order-link:hover,
   .subscription__btn:hover {
@@ -112,13 +112,13 @@
     margin: 0 auto; } }
 @media (max-width: 935px) and (pointer: none), (max-width: 935px) and (pointer: coarse) {
   .reviews__slider {
-    width: calc(100vw - 50px);
+    width: calc(100vw);
     overflow-x: scroll; }
     .reviews__slider::-webkit-scrollbar {
       display: none; }
 
   .reviews__slider-blocks {
-    margin-right: 25px; }
+    padding-right: 250px; }
 
   .reviews__stage-wrap {
     display: none; } }
@@ -152,8 +152,8 @@
   .header__search {
     margin-left: auto; }
 
-  .header__search-field,
-  .header__search {
+  .header__search,
+  .header__search-field {
     width: 100%;
     max-width: 240px; }
 
@@ -170,7 +170,7 @@
     height: 38px;
     padding: 11px;
     margin-left: auto;
-    background-color: #ff902b;
+    background-color: #ffc486;
     border-radius: 50%; }
     .header__burger span {
       width: 100%;
@@ -253,7 +253,7 @@
     max-width: 107px; }
 
   .intro {
-    background: url("../img/intro/intro-bg.png") 7px calc(100% + 90px), #f6ebda;
+    background: url("../img-min/intro/intro-bg-min.png") 7px calc(100% + 90px), #f6ebda;
     background-repeat: no-repeat; }
 
   .intro__info {
@@ -271,6 +271,11 @@
   .reviews__info {
     padding: 0; } }
 @media (max-width: 430px) {
+  .cart .cart__content .cart__product {
+    font-size: 16px; }
+    .cart .cart__content .cart__product .cart__product-controls .cart__product-name {
+      height: 19px; }
+
   .intro,
   .reviews,
   .subscription {
@@ -290,15 +295,12 @@
       width: 100%; }
 
   .header__search {
-    margin-left: 0; }
+    max-width: 100%;
+    margin-left: 0;
+    flex: 1 0 auto; }
 
   .header__nav {
     right: 10px; }
-
-  .cart .cart__content .cart__product {
-    font-size: 16px; }
-    .cart .cart__content .cart__product .cart__product-controls .cart__product-name {
-      height: 19px; }
 
   .intro__content {
     padding-bottom: 300px; }

@@ -15,7 +15,7 @@
    }
 }
 
-.about__image-wrap.about-appearance{
+.about__image-wrap.element-appearance{
    opacity: 0;
    transform: rotate(-15deg) translateX(-30%);
 
@@ -25,11 +25,19 @@
    }
 }
 
-.delivery__card-appearance{
+.delivery__card.element-appearance{
    opacity: 0;
    transform: translateY(50px);
 
-   &.delivery__card-show{
+   &:nth-child(2) {
+      transition-delay: 0.3s;
+   }
+
+   &:nth-child(3) {
+      transition-delay: 0.6s;
+   }
+
+   &.element-show{
       opacity: 1;
       transform: translateY(0);
    }

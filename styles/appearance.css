@@ -12,17 +12,21 @@
     opacity: 1;
     transform: translateX(0); }
 
-.about__image-wrap.about-appearance {
+.about__image-wrap.element-appearance {
   opacity: 0;
   transform: rotate(-15deg) translateX(-30%); }
-  .about__image-wrap.about-appearance.element-show {
+  .about__image-wrap.element-appearance.element-show {
     opacity: 1;
     transform: rotate(0) translateX(0); }
 
-.delivery__card-appearance {
+.delivery__card.element-appearance {
   opacity: 0;
   transform: translateY(50px); }
-  .delivery__card-appearance.delivery__card-show {
+  .delivery__card.element-appearance:nth-child(2) {
+    transition-delay: 0.3s; }
+  .delivery__card.element-appearance:nth-child(3) {
+    transition-delay: 0.6s; }
+  .delivery__card.element-appearance.element-show {
     opacity: 1;
     transform: translateY(0); }
 

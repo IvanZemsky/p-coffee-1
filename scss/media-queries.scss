@@ -4,10 +4,11 @@ $yellow: #f4ae26;
 $flesh: #f6ebda;
 $gray: #7e7d7a;
 $peach: #ffddab;
+$light-orange: #ffc486;
 
 @media (hover: none) {
    .header__cart:hover{
-      background-color: rgba($orange, 0.5);
+      background-color: $light-orange;
    }
 
    .intro__order-link:hover,
@@ -77,7 +78,6 @@ $peach: #ffddab;
       position: relative;
 
       input {
-         //width: 180px;
          padding: 11px 40px;
       }
    }
@@ -164,7 +164,7 @@ $peach: #ffddab;
 
 @media (max-width: 935px) and (pointer:none), (max-width: 935px) and (pointer:coarse) {
    .reviews__slider{
-      width: calc(100vw - 50px);
+      width: calc(100vw);
       overflow-x: scroll;
       
       &::-webkit-scrollbar {
@@ -174,7 +174,11 @@ $peach: #ffddab;
    }
 
    .reviews__slider-blocks{
-      margin-right: 25px;
+      padding-right: 250px;
+   }
+
+   .reviews__slider-block:last-child{
+      
    }
 
    .reviews__stage-wrap{
@@ -222,8 +226,8 @@ $peach: #ffddab;
       margin-left: auto;
    }
 
-   .header__search-field,
-   .header__search {
+   .header__search,
+   .header__search-field {
       width: 100%;
       max-width: 240px;
    }
@@ -242,7 +246,7 @@ $peach: #ffddab;
       height: 38px;
       padding: 11px;
       margin-left: auto;
-      background-color: $orange;
+      background-color: $light-orange;
       border-radius: 50%;
 
       span {
@@ -379,7 +383,7 @@ $peach: #ffddab;
 
    .intro {
       background:
-         url("../img/intro/intro-bg.png") 7px calc(100% + 90px),
+         url("../img-min/intro/intro-bg-min.png") 7px calc(100% + 90px),
          $flesh;
       background-repeat: no-repeat;
    }
@@ -406,6 +410,20 @@ $peach: #ffddab;
 }
 
 @media (max-width: 430px) {
+   .cart {
+      .cart__content {
+         .cart__product {
+            font-size: 16px;
+
+            .cart__product-controls {
+               .cart__product-name {
+                  height: 19px;
+               }
+            }
+         }
+      }
+   }
+
    .intro,
    .reviews,
    .subscription {
@@ -436,25 +454,13 @@ $peach: #ffddab;
    }
 
    .header__search {
+      max-width: 100%;
       margin-left: 0;
+      flex: 1 0 auto;
    }
 
    .header__nav {
       right: 10px;
-   }
-
-   .cart {
-      .cart__content {
-         .cart__product {
-            font-size: 16px;
-
-            .cart__product-controls {
-               .cart__product-name {
-                  height: 19px;
-               }
-            }
-         }
-      }
    }
 
    .intro__content {

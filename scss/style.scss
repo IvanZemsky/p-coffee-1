@@ -5,6 +5,7 @@ $yellow: #f4ae26;
 $flesh: #f6ebda;
 $gray: #7e7d7a;
 $peach: #ffddab;
+$light-orange: #ffc486;
 
 :root{
    --wrapper-padding: 25px;
@@ -636,7 +637,7 @@ button {
    height: 42px;
    z-index: 100;
    border-radius: 50%;
-   background-color: rgba($orange, 0.5);
+   background-color: $light-orange;
    transition: background-color 0.15s linear;
 
    img {
@@ -679,8 +680,8 @@ button {
 
 .intro {
    background:
-      url("../img/intro/intro-bg.png") calc(100% + 63px) -34px,
-      url("../img/intro/intro-bg.png") 7px calc(100% + 5px),
+      url("../img/img-min/intro/intro-bg-min.png") calc(100% + 63px) -40px,
+      url("../img/img-min/intro/intro-bg-min.png") 7px calc(100% + 5px),
       $flesh;
    background-repeat: no-repeat;
 }
@@ -935,7 +936,7 @@ button {
 /* About */
 
 .about {
-   background: url("../img/about/about-bg.png") repeat-x center 100%;
+   background: url("../img/img-min/about/about-bg-min.png") repeat-x center 100%;
    padding-top: 120px;
 
    .page-title {
@@ -1033,7 +1034,7 @@ button {
 
 .reviews {
    margin-bottom: 120px;
-   background: url("../img/reviews/reviews-bg.png") no-repeat left / contain;
+   background: url("../img/img-min/reviews/reviews-bg-min.png") no-repeat left / contain;
    overflow-x: hidden;
 
    .page-title {
@@ -1137,7 +1138,7 @@ button {
 
 .subscription__content {
    padding: 132px 30px;
-   background: url("../img/subscription/subscription-bg.png") center / cover;
+   background: url("../img/img-min/subscription/subscription-bg-min.png") center / cover;
    border-radius: 24px;
 }
 
