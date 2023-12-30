@@ -9,14 +9,16 @@ function defineOffset(gapWidth, cardAmount) {
 }
 
 function defineSliderOffsetStep() {
+   let stepAmount; // количество шагов до конца
    if (window.innerWidth > 633) {
       offsetStep = defineOffset(40, 2);
-      finalOffsetStep = -offsetStep * 4;
+      stepAmount = 4;
    }
    else {
       offsetStep = defineOffset(40, 1);
-      finalOffsetStep = -offsetStep * 8;
+      stepAmount = 8;
    }
+   finalOffsetStep = -offsetStep * stepAmount;
 }
 
 let offsetStep;
@@ -34,7 +36,7 @@ window.addEventListener('resize', () => {
 rightArrow.addEventListener('click', () => {
    sliderOffset -= offsetStep;
    
-   if (sliderOffset <= finalOffsetStep) {
+   if (sliderOffset <= finalOffsetStep + offsetStep) {
       rightArrow.classList.add('reviews__stage-forth--blocked');
       sliderOffset = finalOffsetStep;
    }

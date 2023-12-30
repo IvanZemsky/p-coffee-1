@@ -19,15 +19,8 @@
     opacity: 1;
     transform: rotate(0) translateX(0); }
 
-.delivery__card.element-appearance {
-  opacity: 0;
-  transform: translateY(50px); }
-  .delivery__card.element-appearance:nth-child(2) {
-    transition-delay: 0.3s; }
-  .delivery__card.element-appearance:nth-child(3) {
-    transition-delay: 0.6s; }
-  .delivery__card.element-appearance.element-show {
-    opacity: 1;
-    transform: translateY(0); }
+.delivery__card.delivery__card-show {
+  opacity: 1;
+  transform: translateY(0); }
 
 /*# sourceMappingURL=appearance.css.map */

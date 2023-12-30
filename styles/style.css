@@ -90,8 +90,8 @@ button {
   display: none;
   justify-content: center;
   width: 100%;
-  max-width: 700px;
-  min-height: 245px;
+  width: 700px;
+  height: 350px;
   padding: 30px 30px 90px 30px;
   border-radius: 15px;
   background-color: #ffddab;
@@ -106,9 +106,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    gap: 30px;
-    max-height: 400px;
-    min-height: 45px;
+    gap: 20px;
     width: 100%;
     color: #2f2105;
     overflow-y: auto; }
@@ -135,8 +133,8 @@ button {
       padding-right: 25px; }
       .cart .cart__content .cart__product .cart__product-img-wrap {
         flex-shrink: 0;
-        width: 125px;
-        height: 125px;
+        width: 90px;
+        height: 90px;
         margin-right: 20px; }
         .cart .cart__content .cart__product .cart__product-img-wrap img {
           width: 100%;
@@ -367,12 +365,11 @@ button {
   transform: translateX(-50%);
   width: 100%;
   margin-top: 42px;
-  transition: top 0.2s linear;
+  transition: all 0.2s linear;
   z-index: 500; }
   .header--scrolled {
-    position: fixed;
-    top: -100%;
-    margin-top: 0;
+    margin-top: 10px;
+    transform: translate(-50%, -100%);
     animation-name: scrolledHeader;
     animation-duration: 0.2s;
     animation-fill-mode: forwards; }
@@ -381,13 +378,13 @@ button {
       background-color: #ffddab;
       border-radius: 30px;
       box-shadow: 0 0 20px 0 rgba(126, 125, 122, 0.2); }
-    .header--scrolled .header__search-content {
-      top: 65px; }
 @keyframes scrolledHeader {
   0% {
-    top: -100%; }
+    position: absolute;
+    transform: translate(-50%, -100%); }
   100% {
-    top: 10px; } }
+    position: fixed;
+    transform: translate(-50%, 0); } }
 .header__wrap {
   display: flex;
   justify-content: space-between;

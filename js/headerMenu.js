@@ -1,6 +1,6 @@
 // анимация
 window.addEventListener('scroll', () => {
-   const header = document.querySelector('header');
+   const header = document.querySelector('.header');
 
    if (scrollY > 400) {
       header.classList.add('header--scrolled');
@@ -54,3 +54,29 @@ headerLinks.forEach(link => {
       targetSection.scrollIntoView({behavior: 'smooth', block: 'start'});
    });
 });
+
+
+   //  &--scrolled {
+   //       position: fixed;
+   //       top: -100%;
+   //       margin-top: 0;
+   //       animation-name: scrolledHeader;
+   //       animation-duration: 0.2s;
+   //       animation-fill-mode: forwards;
+   
+   //       
+   
+   //       .header__search-content {
+   //          top: 65px;
+   //       }
+   //    }
+   
+   //    @keyframes scrolledHeader {
+   //       0% {
+   //          top: -100%;
+   //       }
+   //       100% {
+   //          top: 10px;
+   //       }
+   //    }
+   // }
