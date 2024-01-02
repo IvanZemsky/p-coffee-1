@@ -14,7 +14,6 @@ headerScrolled();
 
 window.addEventListener('scroll', headerScrolled);
 
-
 // бургер
 const headerBurger = document.getElementById('header-burger');
 const headerMenu = document.querySelector('.header__nav');
