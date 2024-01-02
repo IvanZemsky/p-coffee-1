@@ -384,7 +384,7 @@ button {
   100% {
     transform: translate(-50%, -32px); } }
     .header--scrolled .header__search-content {
-      transform: translateY(10px); }
+      transform: translateY(15px); }
 
 .header__wrap {
   display: flex;
@@ -444,7 +444,7 @@ button {
 
 .header__search-content {
   position: absolute;
-  top: 50px;
+  top: 120%;
   right: 0;
   display: none;
   padding: 7px;
