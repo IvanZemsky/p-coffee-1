@@ -1,5 +1,5 @@
-// анимация
-window.addEventListener('scroll', () => {
+// хедер при прокрутке
+function headerScrolled() {
    const header = document.querySelector('.header');
 
    if (scrollY > 400) {
@@ -8,7 +8,11 @@ window.addEventListener('scroll', () => {
    else {
       header.classList.remove('header--scrolled');
    }
-});
+}
+
+headerScrolled();
+
+window.addEventListener('scroll', headerScrolled);
 
 
 // бургер
@@ -54,29 +58,3 @@ headerLinks.forEach(link => {
       targetSection.scrollIntoView({behavior: 'smooth', block: 'start'});
    });
 });
-
-
-   //  &--scrolled {
-   //       position: fixed;
-   //       top: -100%;
-   //       margin-top: 0;
-   //       animation-name: scrolledHeader;
-   //       animation-duration: 0.2s;
-   //       animation-fill-mode: forwards;
-   
-   //       
-   
-   //       .header__search-content {
-   //          top: 65px;
-   //       }
-   //    }
-   
-   //    @keyframes scrolledHeader {
-   //       0% {
-   //          top: -100%;
-   //       }
-   //       100% {
-   //          top: 10px;
-   //       }
-   //    }
-   // }

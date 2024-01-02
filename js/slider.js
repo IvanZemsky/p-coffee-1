@@ -36,7 +36,7 @@ window.addEventListener('resize', () => {
 rightArrow.addEventListener('click', () => {
    sliderOffset -= offsetStep;
    
-   if (sliderOffset <= finalOffsetStep + offsetStep) {
+   if (sliderOffset <= finalOffsetStep) {
       rightArrow.classList.add('reviews__stage-forth--blocked');
       sliderOffset = finalOffsetStep;
    }

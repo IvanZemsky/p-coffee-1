@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             searchedProducts.forEach(product => {
                searchContent.innerHTML += `
-                  <div class="header__seach-item">
-                     <h3 class="header__seach-item-name">${product.name}</h3>
-                     <p class="header__seach-item-desc">${product.desc}</p>
+                  <div class="header__search-item">
+                     <h3 class="header__search-item-name">${product.name}</h3>
+                     <p class="header__search-item-desc">${product.desc}</p>
                   </div>
                `;
             });

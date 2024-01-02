@@ -365,11 +365,11 @@ button {
   transform: translateX(-50%);
   width: 100%;
   margin-top: 42px;
-  transition: all 0.2s linear;
   z-index: 500; }
   .header--scrolled {
-    margin-top: 10px;
+    position: fixed;
     transform: translate(-50%, -100%);
+    transition: all 0.2s linear;
     animation-name: scrolledHeader;
     animation-duration: 0.2s;
     animation-fill-mode: forwards; }
@@ -380,11 +380,12 @@ button {
       box-shadow: 0 0 20px 0 rgba(126, 125, 122, 0.2); }
 @keyframes scrolledHeader {
   0% {
-    position: absolute;
     transform: translate(-50%, -100%); }
   100% {
-    position: fixed;
-    transform: translate(-50%, 0); } }
+    transform: translate(-50%, -32px); } }
+    .header--scrolled .header__search-content {
+      transform: translateY(10px); }
+
 .header__wrap {
   display: flex;
   justify-content: space-between;
@@ -457,13 +458,13 @@ button {
   .header__search-content--opened {
     display: block; }
 
-.header__seach-item {
+.header__search-item {
   padding: 7px;
   line-height: 1.2;
   border-radius: 10px;
   transition: background-color 0.2s;
   cursor: pointer; }
-  .header__seach-item:hover {
+  .header__search-item:hover {
     background-color: #ffe9d2; }
 
 .header__burger {
@@ -482,7 +483,9 @@ button {
   transition: background-color 0.15s linear; }
   .header__cart img {
     width: 25px;
-    height: 25px; }
+    height: 25px;
+    user-select: none;
+    pointer-events: none; }
   .header__cart:hover {
     background-color: #ff902b; }
   .header__cart--active::after {
@@ -506,7 +509,7 @@ button {
     transform: scale(1); } }
 /* Intro */
 .intro {
-  background: url("../img/img-min/intro/intro-bg-min.png") calc(100% + 63px) -40px, url("../img/img-min/intro/intro-bg-min.png") 7px calc(100% + 5px), #f6ebda;
+  background: url("../img/img-min/intro/intro-bg-min.webp") calc(100% + 63px) -40px, url("../img/img-min/intro/intro-bg-min.webp") 7px calc(100% + 5px), #f6ebda;
   background-repeat: no-repeat; }
 
 .intro__content {
@@ -702,7 +705,7 @@ button {
 
 /* About */
 .about {
-  background: url("../img/img-min/about/about-bg-min.png") repeat-x center 100%;
+  background: url("../img/img-min/about/about-bg-min.webp") repeat-x center 100%;
   padding-top: 120px; }
   .about .page-title {
     margin-bottom: 24px; }
@@ -779,7 +782,7 @@ button {
 /* Reviews */
 .reviews {
   margin-bottom: 120px;
-  background: url("../img/img-min/reviews/reviews-bg-min.png") no-repeat left/contain;
+  background: url("../img/img-min/reviews/reviews-bg-min.webp") no-repeat left/contain;
   overflow-x: hidden; }
   .reviews .page-title {
     margin-bottom: 16px; }
@@ -864,7 +867,7 @@ button {
 
 .subscription__content {
   padding: 132px 30px;
-  background: url("../img/img-min/subscription/subscription-bg-min.png") center/cover;
+  background: url("../img/img-min/subscription/subscription-bg-min.webp") center/cover;
   border-radius: 24px; }
 
 .subscription__text {
